@@ -1,0 +1,16 @@
+public.salgrade:
+  - grade: 1
+    losal: 700
+    hisal: 1200
+  - grade: 2
+    losal: 1201
+    hisal: 1400
+  - grade: 3
+    losal: 1401
+    hisal: 2000
+  - grade: 4
+    losal: 2001
+    hisal: 3000
+  - grade: 5
+    losal: 3001
+    hisal: 9999
