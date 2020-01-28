@@ -8,3 +8,5 @@
 
 ### [Testen von Datenbanken](Steyrer_TestenVonDatenbanken) von Christian Steyrer (14. Jänner 2020)
 ### [Datenbank Versionierung](Weinberger_Datenbank-Versionierung) von David Weinberger (???)
+
+### [Dokumentation und Logging](Vasquez_Dokumentation) von Nico Vasquez (28.01.2020)
