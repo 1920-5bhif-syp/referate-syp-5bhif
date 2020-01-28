@@ -1,0 +1,25 @@
+= Vasquez Nico - Dokumentation und Logging
+
+== Presentation
+
+My presentation can be found https://github.com/nicoVasq/asciidoctor-presentation[here.] +
+(presentation on GitHub Pages of that repository)
+
+== Project Repositories 
+
+A more detailed description of each topic can be found in the repositories that I used in the presentation.
+
+AsciiDoctor::
+https://github.com/nicoVasq/asciidoctor-example#links
+
+Logging::
+https://github.com/nicoVasq/logging-example
+
+== Quick access 
+
+AsciiDoctor Maven-Plugin::
+https://asciidoctor.org/docs/asciidoctor-maven-plugin/ . +
+Some https://github.com/asciidoctor/asciidoctor-maven-examples[Examples]
+
+AsciiDoctor Slides with Maven::
+https://github.com/asciidoctor/asciidoctor-maven-examples/tree/master/asciidoc-to-revealjs-example
