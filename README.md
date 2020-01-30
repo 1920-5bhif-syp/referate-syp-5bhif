@@ -1,4 +1,4 @@
-# SYP Referate der 5BHIF!
+﻿# SYP Referate der 5BHIF!
 
 ### [Usability](Lengauer_Usability) von Mario Lengauer (21. November 2019)
 
@@ -13,3 +13,9 @@
 ### [Datenbank Versionierung](Weinberger_Datenbank-Versionierung) von David Weinberger (???)
 
 ### [Dokumentation und Logging](Vasquez_Dokumentation) von Nico Vasquez (28.01.2020)
+
+
+
+
+
+### [Youtrack und Space](Tripic_Youtrack) von Nenad Tripic (30.01.2020)
