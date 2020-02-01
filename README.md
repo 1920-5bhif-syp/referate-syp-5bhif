@@ -6,6 +6,8 @@
 
 ### [Git, GitHub, GitKraken](Brandmair_Git) von Stefan Brandmair (12. Dezember 2019)
 
+### [Test-Doubles, Mocking](Schwarcz_TestDoubles) von Florian Schwarcz (17. Dezember 2019)
+
 ### [Codequalität, Sonarqube](Mayrhofer_Codequalitaet) von Erik Mayrhofer (19. Dezember 2019)
 
 ### [Testen von Datenbanken](Steyrer_TestenVonDatenbanken) von Christian Steyrer (14. Jänner 2020)

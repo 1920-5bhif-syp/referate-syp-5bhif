@@ -29,7 +29,7 @@ public class PersonFacadeTest {
     @Mock
     EntityManager em;
     @Mock
-    Address address;
+    Address dummyAddress;
     @InjectMocks
     PersonFacade personFacade;
 
@@ -42,7 +42,7 @@ public class PersonFacadeTest {
     public void testGetAll() {
         // Arrange
         List<Person> expected = new ArrayList<>();
-        expected.add(new Person("Mockey", "Mouse", address));
+        expected.add(new Person("Mockey", "Mouse", dummyAddress));
 
         when(typedQuery.getResultList()).thenReturn(expected);
         when(em.createNamedQuery("Person.getAll", Person.class)).thenReturn(typedQuery);
@@ -59,11 +59,11 @@ public class PersonFacadeTest {
     @Test
     public void testGetByIdSuccessful() {
         // Arrange
-        Person expected = new Person("Mockey", "Mouse", address);
+        Person expected = new Person("Mockey", "Mouse", dummyAddress);
 
         when(em.find(Person.class, 1L)).thenReturn(expected);
 
-        //Act
+        // Act
         Person actual = personFacade.getById(1);
 
         // Assert
@@ -74,11 +74,11 @@ public class PersonFacadeTest {
     @Test
     public void testGetByIdUnsuccessful() {
         // Arrange
-        Person unexpected = new Person("Mockey", "Mouse", address);
+        Person unexpected = new Person("Mockey", "Mouse", dummyAddress);
 
         when(em.find(Person.class, 1L)).thenReturn(unexpected);
 
-        //Act
+        // Act
         Person actual = personFacade.getById(2);
 
         // Assert

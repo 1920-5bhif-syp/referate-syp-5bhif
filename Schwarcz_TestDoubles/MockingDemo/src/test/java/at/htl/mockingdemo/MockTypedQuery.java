@@ -2,21 +2,21 @@ package at.htl.mockingdemo;
 
 import at.htl.mockingdemo.model.Address;
 import at.htl.mockingdemo.model.Person;
-import org.mockito.Mock;
+import io.quarkus.test.Mock;
 
 import javax.persistence.*;
 import java.util.*;
 
-@io.quarkus.test.Mock
+@Mock
 public class MockTypedQuery<T> implements TypedQuery<T> {
 
     @Mock
-    Address address;
+    Address dummyAddress;
 
     @Override
     public List<T> getResultList() {
-        ArrayList<T> resultList = new ArrayList<T>();
-        resultList.add((T)new Person("Mockey", "Mouse", address));
+        ArrayList<T> resultList = new ArrayList<>();
+        resultList.add((T)new Person("Mockey", "Mouse", dummyAddress));
         return resultList;
     }
 

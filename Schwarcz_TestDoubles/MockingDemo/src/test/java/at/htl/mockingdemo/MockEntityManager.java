@@ -16,8 +16,8 @@ import java.util.Map;
 @Mock
 public class MockEntityManager implements EntityManager {
 
-    @org.mockito.Mock
-    Address address;
+    @Mock
+    Address dummyAddress;
 
     @Override
     public void persist(Object o) {
@@ -37,7 +37,7 @@ public class MockEntityManager implements EntityManager {
     @Override
     public <T> T find(Class<T> aClass, Object o) {
         if (aClass == Person.class && o.getClass() == Long.class && (long)o == 1) {
-            return (T)new Person("Mockey", "Mouse", address);
+            return (T)new Person("Mockey", "Mouse", dummyAddress);
         }
         return null;
     }
@@ -169,8 +169,7 @@ public class MockEntityManager implements EntityManager {
 
     @Override
     public <T> TypedQuery<T> createNamedQuery(String s, Class<T> aClass) {
-        if (aClass == Person.class && s.equals("Person.getAll"))
-        {
+        if (aClass == Person.class && s.equals("Person.getAll")) {
             return new MockTypedQuery<T>();
         }
         return null;
@@ -280,4 +279,5 @@ public class MockEntityManager implements EntityManager {
     public <T> List<EntityGraph<? super T>> getEntityGraphs(Class<T> aClass) {
         return null;
     }
+
 }

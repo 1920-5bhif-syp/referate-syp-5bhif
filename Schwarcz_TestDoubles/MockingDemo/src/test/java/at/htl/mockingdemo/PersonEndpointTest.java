@@ -17,7 +17,7 @@ public class PersonEndpointTest {
                 .when().get("/persons")
                 .then()
                 .statusCode(200)
-        .body(is("[{\"firstName\":\"Mockey\",\"lastName\":\"Mouse\"}]"));
+                .body(is("[{\"firstName\":\"Mockey\",\"lastName\":\"Mouse\"}]"));
     }
 
     @Test
@@ -30,7 +30,7 @@ public class PersonEndpointTest {
     }
 
     @Test
-    public void testGetByIdUncuccessful() {
+    public void testGetByIdUnsuccessful() {
         given()
                 .when().get("/persons/2")
                 .then()
