@@ -36,7 +36,7 @@ Beim Design einer Website sollen die nachkommenden Merkmale vermieden werden:
 
 == Netflix Login Page - derzeit
 
-image::netflix_derzeit.png[]
+image::images/netflix_derzeit.png[]
 
 Es lassen sich folgende Merkmale feststellen:
 
@@ -74,7 +74,7 @@ TIP: Orientieren Sie sich an „Vorreiter-Websites“ wie z.B.: Apple und Netfli
 
 TIP: Soll Sinn für die Benutzer ergeben und dessen Ziele unterstützen, d. h. dem Benutzer helfen, was er finden möchte.
 
-image::dynatrace.png[]
+image::images/dynatrace.png[]
 
 Auf der Website der Firma dynatrace ist das gut veranschaulicht. 
 
@@ -83,7 +83,7 @@ Jeder Begriff ist in weitere Unterbegriffe gegliedert und es ist aufgrund der *F
 
 == Navigationsstruktur - so nicht!
 
-image::freepeople.png[]
+image::images/freepeople.png[]
 
 TIP: Der Kontrast bzw. die Farbwahl sind *nicht ansprechend*. Betrachtet man die Navigation Bar fällt auf, dass die Begriffe *nicht eindeutig* sind und deshalb *Verwirrung* entsteht. 
 
@@ -96,7 +96,7 @@ TIP: Navigation Bar darf *nicht zu „tief“* sein -> es soll kein vollständig
 
 Wird auf ein Element der Navigation Bar geklickt, darf die *Navigation Bar* nicht verschwinden, sondern *muss bleiben* -> auf dem Netflix Screenshot gut zu sehen (TV-Shows ist ausgewählt, Navigation Bar bleibt)
 
-image::netflix_nav.png[]
+image::images/netflix_nav.png[]
 
 TIP: Des Weiteren kann es hilfreich sein, dem Benutzer mitzuteilen, wo genau im Pfad er sich gerade befindet und wie er zu diesem Pfad gekommen ist.
 
@@ -104,24 +104,24 @@ TIP: Des Weiteren kann es hilfreich sein, dem Benutzer mitzuteilen, wo genau im 
 
 TIP: Trennung durch Whitespaces. Vermeiden Sie ein überladenes Seitendesign, da es für den Benutzer überwältigend wirkt. Durch Whitespaces entsteht eine *Gruppierung von Informationen* und dadurch wird die Website übersichtlicher. 
 
-image::whitespaces.png[]
+image::images/whitespaces.png[]
 
 == Design des Inhaltes - so nicht!
 
 Auf der alten Website von „Go-daddy.com“ erkennen Sie, wie es aussieht, wenn man keine Whitespaces macht.
 
-image::godaddy_no_ws.png[]
+image::images/godaddy_no_ws.png[]
 
 == Design des Inhaltes - so schon!
 
 Go-Daddy hat aus den gemachten Fehlern gelernt und – wie auf diesem Bild zu sehen ist – die Trennung durch Whitespaces verwendet, um ein schlichtes und gut lesbares User Interface zu gewährleisten.
 
-image::godaddy_ws.png[]
+image::images/godaddy_ws.png[]
 
 == Design des Inhaltes - wichtige Infos oben!
 Wichtige Infos oben. Ziemlich selbsterklärend, weitere Infos in Teil 1 (von Mario Lengauer). 
 
-image::notes_top.png[]
+image::images/notes_top.png[]
 
 TIP: Kurze und prägnante Texte, welche formatiert werden sollen -> Whitespaces, bullet points bzw. fette/kursive Schrift.
 
@@ -140,7 +140,7 @@ TIP: Es ist besser, den Begriff auszuschreiben und danach in Klammern die Abkür
 Das gilt selbstverständlich nur, wenn die Besucher *NICHT vom Fach* sind. +
 Ein Adam Bien hat nicht „Java Platform, Enterprise Edition“ gesagt, sondern lediglich „JEE“.
 
-image::no_jargon.png[]
+image::images/no_jargon.png[]
 
 == Design des Inhaltes
 
@@ -153,7 +153,7 @@ TIP: Mit Pop-ups sehr sparsam umgehen, denn diese stören meist den Benutzer und
 Es gibt jedoch Situationen, in denen Pop-ups einen Sinn machen: wenn der aktuelle Speicherstand verloren gehen würde -> +
 Bsp.: Ausfüllen eines Formulars bevor Seite geschlossen wird
 
-image::popup.png[]
+image::images/popup.png[]
 
 == Richtlinien-Checklist
 
