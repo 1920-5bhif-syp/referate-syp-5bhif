@@ -25,7 +25,7 @@ Unterbewusst bewertet ein Benutzer eine Website auf folgende Punkte:
 
 == Netflix Login Page - alt
 
-image::netflix_alt.png[]
+image::images/netflix_alt.png[]
 
 Beim Design einer Website sollen die nachkommenden Merkmale vermieden werden:
 
