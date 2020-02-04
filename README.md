@@ -19,7 +19,7 @@
 ### [Dokumentation und Logging](Vasquez_Dokumentation) von Nico Vasquez (28.01.2020)
 
 
-
+### [VueJS CI/CD](Ahammer_VueCICD) von Fabian Ahammer (05.12.2020)
 
 
 ### [Youtrack und Space](Tripic_Youtrack) von Nenad Tripic (30.01.2020)
