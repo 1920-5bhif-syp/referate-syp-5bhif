@@ -1,5 +1,6 @@
 = Usability (Teil 2/2)
 :icons: font
+:toc:
 
 == Einleitung
 Die Zahlenfolge #1 2 1 2 1 2 1 2 1 2 1 2# wird leichter zu merken sein als 
