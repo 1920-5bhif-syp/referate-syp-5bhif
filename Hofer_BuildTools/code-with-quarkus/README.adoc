@@ -1,0 +1,57 @@
+= Build Tools
+
+== Theorie
+=== Was sind Build Tools
+Ein Erstellungsprozess oder Build-Prozess bezeichnet in der Softwareentwicklung einen Vorgang, durch den ein fertiges Anwendungsprogramm automatisiert erzeugt wird.
+
+=== Ant
+* Eines der ersten "modernen" Build-Tools
+* XML Konfigurationsstruktur
+
+=== Maven
+* Auf Ant aufgebaut
+* XML Struktur
+* Dependency-Management
+
+=== Gradle
+* direkt ausführbarer Code
+* inkrementell und parallel ablaufende Build-Prozesse
+* sehr gute Performance
+
+inkrementell -> nur die Teile einer Software werden gebaut, die verändert wurden oder auf veränderten Teilen beruhen
+
+
+== Maven
+* Projekt erstellen
+[source]
+mvn io.quarkus:quarkus-maven-plugin:1.2.0.Final:create \
+    -DprojectGroupId=my-groupId \
+    -DprojectArtifactId=my-artifactId \
+    -DprojectVersion=my-version \
+    -DclassName="org.my.group.MyResource"
+
+* Development mode
+[source]
+./mvnw compile quarkus:dev
+
+
+== Gradle
+* Projekt erstellen
+[source]
+mvn io.quarkus:quarkus-maven-plugin:1.2.0.Final:create \
+    -DprojectGroupId=my-groupId \
+    -DprojectArtifactId=my-artifactId \
+    -DprojectVersion=my-version \
+    -DclassName="org.my.group.MyResource" \
+    -Dextensions="resteasy-jsonb" \
+    -DbuildTool=gradle
+
+* Development mode
+[source]
+./gradlew quarkusDev
+
+
+== Quarkus Plugin für Intellij
+* File -> Settings -> Plugins
+
+image::quarkus_tools.png[size=50%]
