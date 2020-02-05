@@ -1,0 +1,81 @@
+# Gatling
+
+.Generelle Daten
+|===
+|Programmiersprache|Scala
+|Von|GatlingCorp
+|Wozu|Load/Stresstest REST-Endpoints/Websites
+|Feature|HTML report
+|===
+## UI
+https://gatling.io/open-source
+
+### recorder
+*/bin/recorder.bat* starten
+
+um das Scenario aufzunehmen Namen geben und auf Start klicken. Dann im Browser durchspielen
+
+IMPORTANT: man muss eine Proxy auf 127.0.0.1:8000 setzten (Windows: Netzwerk und Internet / Proxyeinstellungen)
+
+### Stresstest ausführen
+*/bin/gatling.bat* ausführen
+
+wenn keine Fehler geworfen werden gewüschtes Scenario ausführen
+
+#### Anzahl User anpassen
+im Code unter */user-files/simulations/exampleSimulation.scala* ändern
+
+
+## Scala Code
+Der Scala Code Teil sich grob in 3 Teile: Header setzen, Ablauf erstellen und User erstellen. Beim Arbeiten ist
+der https://gatling.io/docs/current/cheat-sheet/[Gatling "Cheat-Sheet"] sehr hilfreich.
+
+### Teil 1: Header
+[source,scala]
+----
+val httpProtocol = http
+.baseUrl("http://computer-database.gatling.io")
+----
+Man kann die BaseUrl(required) und diverse Header die bei allen Abfragen benutz werden wollen setzten
+
+### Teil 2: Abfragen
+
+[source,scala]
+----
+val scn = scenario("BasicSimulation")
+.exec(
+  http("request_1")
+    .get("/"))
+.pause(5)
+----
+
+|===
+|exec|Abfrage starten
+|http()|Http abfrage erstellen(param = request name)
+|get|Simpler get Request (param = path)
+|pause|warten um den Benutzer besser zu simulieren
+|===
+
+### Teil3: User erstellen
+[source,scala]
+----
+setUp(
+    scn.inject(atOnceUsers(10))
+  ).protocols(httpProtocol)
+----
+
+|===
+|setUp|Gatling test starten
+|scn|definiertes Scenario
+|atOnceUser(x)|x User gleichzeitig den Test ausführen lassen
+|protocols|am Anfang definierte Header
+|===
+
+
+## Maven Project
+Klasse muss von Simulation erben
+
+*mvn gatling:test -Dgatling.simulationClass=XXX*
+
+xxx = Klassenname
+
