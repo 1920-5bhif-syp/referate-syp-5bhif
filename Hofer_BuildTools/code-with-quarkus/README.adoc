@@ -54,4 +54,4 @@ mvn io.quarkus:quarkus-maven-plugin:1.2.0.Final:create \
 == Quarkus Plugin für Intellij
 * File -> Settings -> Plugins
 
-image::quarkus_tools.png[size=50%]
+image::src/docs/images/quarkus_tools[size=50%]
