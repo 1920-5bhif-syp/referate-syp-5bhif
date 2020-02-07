@@ -1,0 +1,73 @@
+= MQTT mit Mycroft
+:toc: Inhaltsverzeichnis
+:toc-title: Inhaltsverzeichnis
+:imagesdir: images
+
+
+== Voraussetzungen
+
+=== Mycroft
+
+1. Mycroft installieren. https://github.com/MycroftAI/mycroft-core
+2. Custom-MQTT-Skill installieren (im Mycroft-skills-directory, Linux: /opt/mycroft/skills) (Auf Python Requirements achten)
+- Python 2.7: https://github.com/jamiehoward430/mycroft-mymqtt
+- Python 3.7: https://github.com/Maxwahl/mycroft-mymqtt
++
+[source,shell]
+----
+pip install paho-mqtt
+----
+
+=== MQTT-Broker
+
+Ein MQTT-Broker wird zum Verteilen der Nachrichten benötigt.
+
+Empfehlung: https://philhawthorne.com/setting-up-a-local-mosquitto-server-using-docker-for-mqtt-communication/
+
+=== MQTT-Client
+
+Zum Testen wird ein MQTT-Client empfohlen. BSP MQTT-Lense für Google Chrome.
+
+
+== Testen
+
+* Im Skill-Directory Settings.json nach Bedürfnissen anpassen.
++
+Beispiel:
++
+[source,json]
+----
+{
+    "mqtthost": "localhost", 
+    "mqttport": "1883", 
+    "__mycroft_skill_firstrun": false
+    }
+----
+
+Nach starten von Mycroft sollte dieser den neuen Skill erkennen.
+
+Wenn man einen passenden Befehl eingibt, sollte man dies in den Logs erkennen und durch den MQTT-Broker eine Nachricht erhalten.
+
+image::hail.png[Hailing Mycroft]
+image::log.png[Corresponding Log Message]
+image::client.png[message received by the MQTT-Client]
+
+== Erweiterung / Erklärung
+
+Dieser Mycroft-Skill versucht, aus allen Texten 3 Wortarten zu erkennen: ModuleKeywords, CommandKeywords und ActionKeywords. Gelingt ihm dies, published er entsprechend eine Nachricht in ein Topic.
+
+Topic: ModuleKeyword/CommandKeyword
+
+Message: ActionKeyword
+
+So könnten natürlich Topics entstehen, die keinen Sinn machen, aber man kann diese dann gekonnt ignorieren.
+
+Um die Funktionalität zu erweitern, muss einfach nur neues Vokabular eingetragen werden.
+
+ModuleKeywords: "Geräte" (Licht, Fernseher, Kamera,...)
+
+CommandKeywords: "Aktionen" ("schalten","stellen",...)
+
+ActionKeywords: "Zustände" (ein,an,aus,)
+
+Verweis auf eine deutsche Übersetzung: https://github.com/gras64/mycroft-mymqtt
