@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>BotUI - Hello World</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/botui/build/botui.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/botui/build/botui-theme-default.css" />
+    <meta name="description" content="A hello world bot. A conversational UI built using BotUI.">
+</head>
+
+<body>
+    <!-- this is it, 4 line-->
+    <div class="botui-app-container" id="hello-world">
+        <bot-ui></bot-ui>
+        <input class="botui-actions-text-input" type="text" id="input">
+        <button class="botui-actions-buttons-button" onclick="sendmessage()" id="sendButton">Senden</button>
+    </div>
+    <script src=" https://cdn.jsdelivr.net/vue/latest/vue.min.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/botui/build/botui.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>
