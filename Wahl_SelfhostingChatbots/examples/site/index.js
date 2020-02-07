@@ -21,8 +21,6 @@ async function sendmessage() {
             message: message
         } )
     } ).then( response => { return response.json() } );
-    console.log( resp );
-    console.log( botui )
     for ( var i = 0; i < resp.length; i++ ) {
         if ( resp[ i ].text ) {
             botui.message.bot( {
