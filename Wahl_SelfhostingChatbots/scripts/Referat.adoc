@@ -1,0 +1,99 @@
+= Selfhosted Chatbots and Personal Assistants
+:toc:
+:toc-title: Inhaltsverzeichnis
+:imagesdir: images
+:toclevels: 4 
+
+
+== Warum?
+
+Fertige Chatbots und PAs von Google, Amazon und Co funktioneren doch ausgezeichnet und vermutlich besser als etwas, was man selbst programmieren könnte, aber warum sollte man diesen Alternativen doch eine Chance geben:
+
+* Datensicherheit
+* Use-Case
+* Support von bestimmten Features
+* Unterstützer von Open-Source
+
+== 3 Alternativen
+
+=== Snips.ai
+
+* Ausgelegt als Selbst-gehosteter Personal Assistant zur Steuerung von Geräten
+* Design der Creation-Page ist inspiriert von Dialogflow
+* Im Gegensatz zu Dialogflow gibt es aber kein Cloud-Deployment
+
+==== Deployment
+
+Nach Fertigstellung eines Assistants Gibt es zwei Wege, einen Snips-Assistant zu deployen:
+
+image::snips-deployment.png[Snips-Deployment Diagram]
+
+Legende:
+
+* Hooks: Aktionen, die gestarten werden, nachdem eine Intent erkannt wurde
+* SAM: Snips Assistant Manager
++
+Programm, mit dem Chatbots mit Hook-Sourcen über die Snips-Server in eine DB eingetragen werden, und über ein Programm (für Raspi und andere unterstütze Hardware/OS) gedownloadet und gestartet werden können.
+
+Der Vorteil des SAM-Deployments ist das automatische Updaten des Assistants bei Durchführung einer Änderung.
+
+==== Eigene Erfahrung
+
+* Normaler Chatbot mit Deployment am Rechner
+- Hat am Rechner nicht funktioniert
+- Am Raspi schon
+- Qualität des Chatbots mäßig
+
+* PA - Steuerung meiner Philips Hue
+- API-Anbindung ging flott
+- Qualität für 3 Phrasen ok
+
+==== Tod von Snips (für Privatkunden)
+
+* Sonos kaufte Snips Ende 2019
+* Das Ende der Development-Console wurde angekündigt
+* Seit Februar 2020 nur mehr für B2B und B2C Applikationen verwendbar
+
+=== RASA
+
+* RASA ist ein reiner Chatbot
+* Python-Library die zu 100% on-Device funktioniert
+* Konfiguration über .md oder .json Dateien
+
+==== RASA im Netz
+
+RASA hat neben dem CLI auch die Möglichkeit, einen HTTP-Server zu starten, der über ReST steuerbar ist.
+
+Beispielapplikation:
+
+image::rasa-web.png[RASA im Web]
+
+==== RASA <3 Containers
+
+Die RASA-Entwickler stellen für alle Versionen Docker-Images mit allen gängigen Language-Models zum einfachen Deployen oder Trainieren zur Verfügung.
+
+* Nach lokalem Development -> lade meine App in Container
+* Direktes POSTen einer Config auf 
+einen laufenden Server
+
+=== Mycroft
+
+* Personal Assistant - Fokus auf Home-Automation
+* Funktion: Emulation eines System-Bus mit Websockets - Einfaches Einklinken von Funktionalität
++
+image::mycroft-arch.jpg[Mycroft Architecture]
+
+* Skills: kleine Abgeschlossene Einheiten mit Vokabular und Hooks für eigene Features
+* Code ist open Source
+
+image::mycroft-core.jpg[Mycroft Architecture]
+
+Tutorial um Mycroft mit MQTT zu kombinieren ist im anderen Skript.
+
+== BotUI
+
+BotUI ist ein lightweight JavaScript-Framework, dass Konversationen im Messenger-like Design in Webprojekten ermöglicht.
+
+Einbindung ist leicht über CDN oder npm möglich.
+
+image::botui.png[Beispiel]
