@@ -24,4 +24,6 @@
 
 ### [Youtrack und Space](Tripic_Youtrack) von Nenad Tripic (30.01.2020)
 ### [Projektmanagement-Tools](Schürz_Projektmanagement-Tools) von Jonas Schürz (30.01.2020)
+### [Selfhosting Chatbots and Personal Assistans](Wahl_SelfhostingChatbots) von Maximilian Wahl (04.02.2020)
+
 ### [Load- und Stresstests](Auinger_Antensteiner_Load-%2CStresstest) von THomas Antensteiner und Philipp Auinger (06.02.2020)
