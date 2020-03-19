@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" prefix="og: http://ogp.me/ns#">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kubernetes</title>
+  <meta name="description"
+    content="WebSlides is the easiest way to make HTML presentations, portfolios, and landings. Just essential features.">
+
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,700,700i%7CMaitree:200,300,400,600,700&amp;subset=latin-ext"
+    rel="stylesheet">
+
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/webslides.css">
+
+  <link rel="stylesheet" type='text/css' media='all' href="static/css/svg-icons.css">
+
+</head>
+
+<body>
+  <main role="main">
+    <article id="webslides" class="vertical">
+
+      <section>
+        <div class="wrap aligncenter">
+          <figure>
+            <img src="./static/images/kubernetes.png" width="50%">
+          </figure>
+          <h4 style="padding-top: 25px;">Michael Frech & Leon Kuchinka</h4>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Was ist Kubernetes?</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <ul>
+                <li>
+                  <h4>"K8s"</h4>
+                </li>
+                <li>
+                  <h4>Container Orchestration</h4>
+                </li>
+                <li>
+                  <h4>2015 von Google released</h4>
+                </li>
+                <li>
+                  <h4>"Makes many servers act like one"</h4>
+                </li>
+              </ul>
+            </div>
+            <div class="column">
+              <figure>
+                <img width="50%" src="./static/images/logo.png">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Eselsbrücke</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <ul>
+                <li>
+                  <h4>Kubernetes = griech. "Steuermann"</h4>
+                </li>
+                <li>
+                  <h4>Kybernetik = die Wissenschaft der Steuerung</h4>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <span class="background" style="background-image: url('./static/images/ship.jpg')">
+          <div class="wrap aligncenter">
+            <h1 class="text-shadow" style="color: white; margin-top: 15%"><strong>Eine kleine Analogie</strong></h1>
+          </div>
+        </span>
+      </section>
+
+      <section>
+        <span class="background" style="background-image: url('./static/images/captain.jpg')">
+        </span>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Warum Container Orchestration?</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <figure>
+                <img width="40%" src="./static/images/logo.png">
+              </figure>
+            </div>
+            <div class="column">
+              <figure>
+                <img width="40%" src="./static/images/ecs.png">
+              </figure>
+            </div>
+            <div class="column">
+              <figure>
+                <img width="40%" src="./static/images/swarm.png">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5;margin-top: -100px"><strong>Begriffe - Cluster, Master, Node</strong></h1>
+          <figure>
+            <img src="./static/images/cluster.png" width="70%">
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Begriffe - Pod, Controller, Service</strong></h1>
+          <figure>
+            <img src="./static/images/node.png" width="50%">
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Installation</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <h4>Linux</h4>
+              <pre>sudo apt-get install snapd
+sudo snap install microk8s --classic
+sudo usermod -a -G microk8s $USER
+alias kubectl='microk8s.kubectl'</pre>
+            </div>
+            <div class="column">
+              <h4>Mac & Windows ToolBox</h4>
+              <figure>
+                <img src="./static/images/settings-kubernetes.png">
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Erstes Deployment</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <pre>kubectl create deployment my-apache --image httpd
+kubectl get all
+
+kubectl scale deployment my-apache my-apache --replicas 2
+kubectl get all
+
+kubectl get pods
+kubectl describe pod &lt;pod-name&gt;
+
+kubectl get pods -w
+microk8s.kubectl delete pod/&lt;pod-name&gt;
+
+kubectl delete deployment my-apache</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!--       <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Dashboard</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <pre>kubectl enable dashboard
+token=$(microk8s.kubectl -n kube-system get secret | grep default-token | cut -d " " -f1)
+kubectl -n kube-system describe secret $token
+microk8s.kubectl get all --all-namespaces
+                  
+https://&lt;cluster-ip of kubernetes-dashboard&gt;:443
+                  </pre>
+            </div>
+          </div>
+        </div>
+      </section> -->
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Erster Service</strong></h1>
+          <div class="grid vertical-align">
+            <div class="column">
+              <pre>kubectl create deployment nginx-example --image nginx
+kubectl expose deployment/nginx-example --port 80 --name myservice --type NodePort
+kubectl get all
+curl localhost:&lt;port&gt;</pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>JakartaEE & Kubernetes</strong></h1>
+        </div>
+      </section>
+
+      <section>
+        <div class="wrap aligncenter">
+          <h1 style="color: #326ce5"><strong>Quarkus & Kubernetes</strong></h1>
+        </div>
+      </section>
+      <section>
+        <div class="wrap aligncenter">
+          <div class="column">
+            <h3><strong>Quellen</strong></h3>
+            <ul>
+              <li>
+                <p>https://kubernetes.io/docs/home/</p>
+              </li>
+              <li>
+                <p>https://www.udemy.com/course/docker-mastery</p>
+              </li>
+              <li>
+                <p>https://github.com/ubuntu/microk8s</p>
+              </li>
+              <li>
+                <p>https://www.tokkoro.com/5041295-aerial-cargo-container-ship-ocean-ship.html</p>
+              </li>
+              <li>
+                <p>https://www.pexels.com/photo/man-holding-ship-s-wheel-1121797/</p>
+              </li>
+              <li>
+                <p>https://rieckpil.de/howto-deploy-java-ee-applications-to-kubernetes/</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section> -->
+
+
+    </article>
+  </main>
+
+  <script src="static/js/webslides.js"></script>
+  <script>
+    window.ws = new WebSlides();
+  </script>
+  <script defer src="static/js/svg-icons.js"></script>
+
+</body>
+
+</html>

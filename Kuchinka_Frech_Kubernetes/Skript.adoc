@@ -1,0 +1,275 @@
+= Kubernetes
+Leon Kuchinka, Michael Frech
+:toc:
+:icons: font
+
+== Was ist Kubernetes?
+Kubernetes ist ein Container Orchestrator ( orchestrieren = instrumentalisieren). Was bedeutet das? Eine sehr leicht verständliche Definition ist: Kubernetes lässt viele Server im Zusammenspiel so funktionieren, als wäre es einer. Kubernetes wurde 2015 von Google released, wird aber nun von einer Open-Source-Community verwaltet. K8s ist eine Abkürzung, die durch Ersetzen der 8 Buchstaben “ubernete” mit “8” abgeleitet wird.
+
+[NOTE]
+====
+Der Name Kubernetes stammt aus dem Griechischen und bedeutet Steuermann oder Pilot. Die Kybernetik ist allgemein auch die Wissenschaft der Steuerung. 
+====
+
+.Analogie
+[NOTE]
+====
+Ein Kubernetes System kann man sich vorstellen wie ein riesiges Frachtschiff. Die Aufgabe des Schiffes ist es, Container von A nach B zu transportieren. Als Kunde ist es mit aber egal wo sich der Container befindet. Ob sich der Container links oder rechts, vorne oder hinten, oben oder unten befindet, hauptsache er kommt am Ziel an. Ich möchte nur, dass er ankommt. Darum kümmert sich der Kapitän mit seinem Team.
+====
+
+
+== Wofür braucht man Container Orchestration?
+In der Informatik der Gegenwart und der Zukunft laufen alle Anwendungen in vielen Containern. Container sind leichtgewichtig und schnell. Container Orchestration ist nun die Steuerung vieler Container. Dabei kümmert es sich darum, dass alles in dem Status ist, der vorgesehen ist. Sollte ein Container oder sogar ein ganzer Computer abstürzen, so kümmert sich das System darum, dass die Container wieder hergestellt werden. Vorteile wie Load-Balancing oder Health-Monitoring kommen auch noch dazu.
+
+Wie hängt das nun mit Docker zusammen? Kubernetes setzt auf einer Container Runtime auf. Das muss nicht unbedingt Docker sein, aber Docker ist der Standard. (Alternativen: CRI-O, Containerd)
+
+Container Orchestration ist aber natürlich auch kein Wundermittel und Lösung für jedes Problem. Wenn man beispielsweise nur einen Server braucht, die Applikation so gut wie nie ändert und man einfach als One-Man-Show irgendeine Website hosten will, dann zahlt sich Möglicherweise der Aufwand nicht aus.
+
+=== Produkte
+* Docker Swarm (bei Docker-Installationen dabei)
+* Kuberntes (läuft in so gut wie jeder Cloud)
+* Elastic Container Service (ECS) in Amazon Web Services (AWS)
+* Cloud Foundry
+* Mesos
+* Marathon
+
+== Aufbau
+
+=== Cluster
+Ein Cluster ist der Verbund von Computern, die gemeinsam als eine Einheit arbeiten.
+[NOTE]
+====
+das Frachtschiff in unserer Analogie
+====
+
+=== Master
+Der Master ist für die Verwaltung des Clusters verantwortlich. Der Master koordiniert alle Aktivitäten im Cluster, z.B. das Planen von Anwendungen, das Verwalten des gewünschten Status der Anwendungen, das Skalieren von Anwendungen usw.
+[NOTE]
+====
+der Kapitän in unserer Analogie
+====
+
+=== Nodes
+Ein Node ist ein VM oder ein physischer Computer, der als Arbeitsmaschine in einem Kubernetes-Cluster dient. Jeder Node verfügt über einen Agenten zur Verwaltung und zur Kommunikation mit dem Master. Jeder Node braucht darüber hinaus noch eine Container-Engine. Dabei gibt es mehrere Möglichkeiten aber Docker ist der Standard.
+[NOTE]
+====
+vergleichbar mit einzelnen Bereichen des Schiffs
+====
+
+=== Pod
+Ein Pod beinhaltet einen, in manchen Fällen auch mehrere Container, und befindet sich auf einem Node. Ein Pod ist die Basiseinheit eines Deployments. Container befinden sich immer innerhalb eines Pods.
+[NOTE]
+====
+ein Schiffscontainer einer Fracht
+====
+
+=== Controller
+Überwachen und steuern den Cluster und seine Bestandteile. Es gibt viele verschiedene Arten von Controller (zb. Deployment, ReplicaSet). Controller achten im Prinzip nur darauf, dass die der tatsächliche Status eines Objektes mit dem definierten Status übereinstimmt. 
+
+.Deployment
+[NOTE]
+====
+Vergleichbar mit einer Fracht eines Schiffs. Besteht aus einem oder mehreren Pods. Ein Deployment ist ein Controller!
+====
+
+.ReplicaSet
+[NOTE]
+====
+Kümmert sich darum, dass genau die definierte Anzahl an Pods (Replica = Kopie) im Deployment laufen.
+====
+
+=== Services
+Ein Endpoint mit den eine Applikation, die auf ein oder mehreren Pods läuft, erreichbar gemacht wird.
+
+==== ClusterIP
+Ist eine virtuelle IP-Adresse im Cluster, die auch nur innerhalb des Clusters erreichbar ist.
+
+==== NodePort
+Ein Port der auf dem Cluster geöffnet wird (default 30000-32767) dessen Traffic auf eine Applikation forwarded wird.
+
+== Kubernetes mit YAML
+Wie bei Docker mit Docker-Compose gibt es auch bei Kubernetes die Möglichkeit Deployments, Services usw. deklarativ mit einem YAML-File zu erstellen. Dadurch müssen keine `kubectl create` -Statements geschrieben werden. Mit `kubectl apply -f kubernetes.yaml` werden die benötigten Ressourcen erstellt bzw. bei wenn schon vorhanden, gegebenenfalls geändert.
+
+
+
+
+== Beispiele:
+
+=== Beispiel 1: Erstes Deployment
+Deployment mit einem Pod erstellen. Als Image für den Container wird das httpd-Image verwendet.
+[source, bash]
+----
+kubectl create deployment my-apache --image httpd
+----
+
+Alle Objekte im Cluster anzeigen lassen. Das Deployment sollte zu sehen sein.
+[source, bash]
+----
+kubectl get all
+----
+
+Deployment "upscalen" auf zwei Pods.
+[source, bash]
+----
+kubectl scale deployment my-apache my-apache --replicas 2
+----
+
+Nun sollten zwei Pods sichtbar sein.
+[source, bash]
+----
+kubectl get pods
+----
+
+Informationen zu Pods auslesen.
+[source, bash]
+----
+kubectl describe pod <pod-name>
+----
+
+Pods werden automatisch neu erstellt, wenn sie gelöscht werden.
+[source, bash]
+----
+kubectl delete pod/<pod-name>
+kubectl get pods
+----
+
+=== Beispiel 2: Erster Service
+Neues Deployment erstellen
+[source, bash]
+----
+kubectl create deployment nginx-example --image nginx
+----
+
+Service für das Deployment erstellen
+[source, bash]
+----
+kubectl expose deployment/nginx-example --port 80 --name myservice --type NodePort
+----
+
+Nachschauen welcher Port freigegeben wurde
+[source, bash]
+----
+kubectl get all
+----
+
+Austesten
+[source, bash]
+----
+curl localhost:<port>
+----
+
+=== Beispiel 3: JakartaEE in Kubernetes
+Lokale Docker-Registry für Images auf Port 5000 wird benötigt!
+[source, bash]
+----
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+----
+
+Projekt bauen & Image builden
+[source, bash]
+----
+mvn clean package
+docker build -t java-ee-k8s-demo .
+docker tag java-ee-k8s-demo localhost:5000/java-ee-k8s-demo
+docker push localhost:5000/java-ee-k8s-demo
+----
+
+Yaml-File für Deployment & Service
+[source, yaml]
+----
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+ name: java-ee-k8s-demo
+spec:
+ replicas: 2
+ selector:
+   matchLabels:
+     app: java-ee-k8s-demo
+ template:
+   metadata:
+     labels:
+       app: java-ee-k8s-demo
+   spec:
+     containers:
+       - name: java-ee-k8s-demo
+         image: localhost:5000/java-ee-k8s-demo
+         imagePullPolicy: Always
+         ports:
+           - containerPort: 8080
+         readinessProbe:
+           httpGet:
+             path: /health
+             port: 8080
+           initialDelaySeconds: 45
+         livenessProbe:
+           httpGet:
+             path: /health
+             port: 8080
+           initialDelaySeconds: 45
+     restartPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+ name: java-ee-k8s-demo
+spec:
+ type: NodePort
+ ports:
+   - port: 8080
+     targetPort: 8080
+     protocol: TCP
+     nodePort: 31000
+ selector:
+   app: java-ee-k8s-demo
+----
+
+Deployen
+[source, bash]
+----
+kubectl apply -f deployment.yml
+----
+
+
+=== Beispiel 4: Quarkus in Kubernetes
+[NOTE]
+====
+DNS muss im Cluster enabled sein!
+====
+
+Lokale Docker-Registry für Images auf Port 5000 wird benötigt!
+[source, bash]
+----
+docker run -d -p 5000:5000 --restart=always --name registry registry:2
+----
+
+Datenbank-Deployment erstellen
+[source, bash]
+----
+microk8s.kubectl run postgres --image=postgres:latest --port=5432 --image-pull-policy=IfNotPresent
+microk8s.kubectl expose deployment postgres --type=NodePort
+----
+
+Als Datasource im Quarkus-Projekt Folgendes eintragen
+[source, xml]
+----
+quarkus.datasource.url=jdbc:postgresql://postgres:5432/postgres
+----
+
+Projekt bauen & Image builden
+[source, bash]
+----
+./mvnw clean install
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus-example .
+docker tag quarkus-example:latest localhost:5000/quarkus-example:latest
+docker push localhost:5000/quarkus-example:latest
+----
+
+Deployen
+[source, bash]
+----
+kubectl apply -f deployment.yml
+----
+
+
+
