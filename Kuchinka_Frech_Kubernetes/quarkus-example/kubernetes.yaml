@@ -1,0 +1,35 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: quarkus-k8s-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quarkus-k8s-demo
+  template:
+    metadata:
+      labels:
+        app: quarkus-k8s-demo
+    spec:
+      containers:
+        - name: quarkus-k8s-demo
+          image: localhost:5000/author:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+      restartPolicy: Always
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: quarkus-k8s-demo
+spec:
+  selector:
+    app: quarkus-k8s-demo
+  ports:
+    - port: 8080
+      targetPort: 8080
+      protocol: TCP
+      nodePort: 31001
+  type: NodePort
