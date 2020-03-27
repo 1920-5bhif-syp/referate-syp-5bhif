@@ -97,3 +97,10 @@ BotUI ist ein lightweight JavaScript-Framework, dass Konversationen im Messenger
 Einbindung ist leicht über CDN oder npm möglich.
 
 image::botui.png[Beispiel]
+
+== Mögliche Fragen
+
+* Was sind Gründe, einen Chatbot bzw. einen PA selbst zu programmieren/konfigurieren und zu hosten?
+* Welche Möglichkeiten gibt es?
+* Warum ist RASA der größte Konkurrent zu proprietären Systemen? (Docker,HTTP-API)
+* Warum ist BotUI ein gutes Framework, um Chatbots ins Web zu bringen? (lightweight, einfach, viel Funktionalität)

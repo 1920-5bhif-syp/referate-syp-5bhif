@@ -68,6 +68,6 @@ ModuleKeywords: "Geräte" (Licht, Fernseher, Kamera,...)
 
 CommandKeywords: "Aktionen" ("schalten","stellen",...)
 
-ActionKeywords: "Zustände" (ein,an,aus,)
+ActionKeywords: "Zustände" (ein,an,aus,...)
 
 Verweis auf eine deutsche Übersetzung: https://github.com/gras64/mycroft-mymqtt
