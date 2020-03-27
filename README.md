@@ -8,7 +8,7 @@
 
 ### [Test-Doubles, Mocking](Schwarcz_TestDoubles) von Florian Schwarcz (17. Dezember 2019)
 
-### [Codequalität, Sonarqube](Mayrhofer_Codequalitaet) von Erik Mayrhofer (19. Dezember 2019)
+### [Codequalität, Sonarqube](Mayrhofer_CodeQualitaet) von Erik Mayrhofer (19. Dezember 2019)
 
 ### [Usability (Teil 2/2)](Nobis_Usability) von Julian Nobis (14. Jänner 2020)
 
