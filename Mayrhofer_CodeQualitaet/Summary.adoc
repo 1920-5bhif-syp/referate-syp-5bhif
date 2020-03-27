@@ -1,0 +1,175 @@
+= CodeQualität
+:toc:
+
+== Was ist Codequalität?
+Codequalität beschreibt folgende nichtfunktionale Anforderungen eines Softwareproduktes:
+ * Komplettheit
+ * Wartbarkeit
+ * Portabilität
+ * Verlässlichkeit
+ * Testbarkeit
+ * Wiederverwendbarkeit
+
+=== Was beschreibt die Komplettheit des Codes?
+Mein Code muss das Problem zur Gänze lösen, da er sonst unvollständig ist.
+
+=== Was beschreibt die Verlässlichkeit (Reliability) des Codes?
+Die Verlässlichkeit beschreibt, wie Wahrscheinlich im Code fehler auftreten, bzw. das Programm zu abstürzen oder ähnlichem kommen wird.
+Hierunter fällt auch die Vorhersehbarkeit des Codes - ein Programmteil sollte sich so verhalten, wie man es intuitiv erwarten würde und Randfälle müssen dementsprechend behandelt werden.
+
+Negativbeispiel::
+    Eine `list.length`-Funktion liefert eine Exception (aufgrund der internen Implementierung), wenn die Liste komplett leer ist. Dies ist unvorhergesehen und macht den Code unzuverlässig, wenn jemand diese Funktion verwendet ohne diesen speziellen Randfall abzuprüfen.
+Positivbeispiel::
+    Die `list.length`-Funktion fängt diese Exception selber ab, und gibt den Erwarteten Wert "0" zurück. 
+
+Andere Negativbeispiele umfassen: Memory-Leaks, Abstürze, unvorhergesehenes Verhalten - generell: Bugs.
+
+=== Was beschreibt die Wartbarkeit (Maintainability) des Codes?
+Ein Code ist Wartbar, wenn ein anderer Programmierer - der nicht an der Erstellung eines Codeteiles beteiligt war - an diesem ohne Probleme Erweiterungen, Änderungen, Bugfixes, etc. vollziehen kann.
+
+Das Gegenteil von Wartbarem Code ist Spaghetticode.
+
+Um Wartbar zu sein, soll der Code gut strukturiert, dokumentiert und klar leserlich sein. Manche Programmiersprachen bauen rein auf diesem Prinzip auf, und tauschen kleine, kurze und geniale APIs durch längere - aber lesbarere Aufrufe aus (Go). Andere Programmiersprachen wurden nach dem Glauben aufgebaut, dass knappe und prägnante Aufrufe lesbarer sind, da mehr Informationsgehalt in weniger Code steckt (Kotlin).
+
+Eine gute Dokumentation trägt auch zur Wartbarkeit des Codes bei, wobei hier darauf geachtet werden muss, dass die Dokumentation auch tatsächlich Informationsgehalt hat. Ein negativbeispiel hierfür, ist ein Auszug aus dem Code des NAO-Fußball-Teams "Hulks":
+[source]
+----
+/// The ball State
+const Dependency<BallState> ballState_;
+----
+
+Vor allem müssen nichtsprechende API's und unvorhersehbare Grenzfälle dokumentiert werden. Ein Beispiel: Eine Sortierfunktion gibt einen Integer zurück. Hierbei muss dokumentiert werden, was der Integer macht, da es nicht sprechend ist.
+
+Indikatoren für nicht Wartbaren Code:
+ * "Hacks" - So schön und elegant sie auch sein mögen meistens sind sie nicht lesbar.
+ * "Blackboxes" - Komplizierte Programmteile werden in Blackbox-Libraries verpackt, welche nach dem Prinzip programmiert wurden. "Es funktioniert, wie es innen abläuft, kann euch egal sein. Das API nach außen ist eh dokumentiert."
+ * Abgekürzte Variablen- /Mehtodennamen - `int avgdistinpocl` ist nicht so lesbar wie `int averageDistanceWithinPointCloud`.
+ * Konsistenz - Dasselbe Problem soll im ganzen Code auf die gleiche Art gelöst werden. Wenn in einem Codeteil ein API genutzt wird, und in einem anderen Codeteil ein anderes API, ist dies erstens nicht lesbar, und zweitens Fehleranfällig (ein Bug wird in Api A gefixed, nicht aber in API B)
+
+Negativbeispiel::
+    Eine große GUI-WPF-Anwendung verwendet für die Hauptinterfaces MVVM mit RelayCommands, aber ein anderer Teil, der von einem anderen Team programmiert wurde, verwendet direkte Methodenaufrufe im XAML
+
+=== Was beschreibt die Portierbarkeit (Portability) des Codes?
+Die Portierbarkeit beschreibt, wie gut der Code in unterschiedlichen Umgebungen gestartet werden kann. Je besser die Systemfunktionen abgekapselt wurden - und je modularer der Code ist, desto besser kann man ihn auf z.B unterschiedlichen Betriebssystemen nutzen.
+
+Die Portierbarkeit beschreibt aber nicht nur Betriebssysteme, sondern auch Betriebssystemversionen, Anwendungsfälle u.Ä (wenn z.b ein GUI-Programm einen Server zum kollaborativen Arbeiten startet, ist der Code nicht qualitativ hochwertig, wenn man diesen Server ausschließlich über das GUI starten kann, und nicht etwas in einem headless-modus für Server ohne GUI)
+
+=== Was beschreibt die Wiederverwendbarkeit (Reusability) des Codes?
+Code ist dann Wiederverwendbar, wen er möglich generalisiert ausfomuliert wurde, um für ähnliche Problemstellungen in der Zukunft auch genutzt werden zu können.
+Dies geht Hand in Hand mit der Wartbarkeit, da ein Wiederverwendbarer Code weniger anfällig für Codeverdopplung ist. Dies spart nicht nur Nerven beim Debuggen, sondern auch viel Zeit, da zukünftige Probleme bereits gelöst sind.
+
+Negativbeispiel::
+    Ich will eine Liste von Customern sortieren, weshalb ich eine Funktion schreibe, die genau dies macht. Später will ein anderer Programmierer eine Liste von Suppliern sortieren, sucht nach einer Sortierfunktion und findet keine, weshalb er sich seine eigene schreibt. (ergo: Zwei Funktionen die fast dasselbe machen existieren.)
+Positivbeispiel::
+    Ich will eine Liste von Customern sortieren, weshalb ich eine Funktion schreibe, die Listen sortiert, und der ich über einen Parameter mitgeben kann, was sie sortieren soll.
+
+Die Wiederverwendbarkeit ist oft aber auch ein konfliktäres Ziel zur Wartbarkeit, da eine Übergeneralisierung oft bedeutet, dass ein einfaches Problem sehr komplex gelöst wurde. 
+
+Hierbei bietet es sich an nach dem YAGNI-Prinzip zu arbeiten, und sobald man es doch braucht eine Generalisierte Lösung zu verfassen.
+
+=== Was beschreibt die Testbarkeit (Testability) des Codes?
+Code muss getestet werden können um eine automatisierte Qualitätskontrolle durchführen zu können. 
+Dies geschieht über eine möglichst lose Kopplung und eine modulare Programmarchitektur. 
+
+Dies geht meistens mit der Wiederverwendbarkeit und der Portabilität einher, da Programmteile leicht austauschbar sind.
+
+Negativbeispiel::
+    Ich sortiere die Liste von Customern in meiner View-Controller Klasse. 
+    Wenn ich die Sortierfunktion testen will, muss ich den Controller und alle seine Abhängigkeiten instanzieren, was im schlimmsten Falle einem Programmstart gleichkommt.
+Positivbeispiel::
+    Alle Kommunikationswege zwischen Klassen sind austauschbar, und jeder Codeteil hat nur Dependencies die er wirklich braucht.
+
+== Welche Prinzipien in der Programmierung gibt es, die auf die Verbesserung der Codequalität abzielen?
+=== Was ist das DRY-Prinzip?
+Don't repeat yourself. 
+
+Das DRY-Prinzip sagt aus, dass wenn man ein Problem - oder ein ähnliches - schon einmal gelöst hat (oder es von einem anderen schonmal gelöst wurde), dann soll man auf diese Lösung zurückgreifen wannimmer es geht. Dies verweist auf die Wiederverwendbarkeit und Warbarkeit des Codes.
+
+=== Was ist das KISS-Prinzip?
+Keep it simple, stupid! / Keep it stupid simple
+
+Das KISS-Prinzip sagt aus, dass Systeme besser funktionieren, wenn sie einfach sind. Dies verweist auf den Hang von Programmierern, alles zu übergeneralisieren. 
+
+Man soll einen Programmteil erst dann komplexer machen, wenn man dies begründen kann.
+
+Unterprinzipien hiervon sind YAGNI und DTSTTCPW
+
+==== Welche Prinzipien gibt es, die mit dem KISS-Prinzip verwandt sind.
+You aren't gonna need it! & Do the simplest Thing that could possibly work.
+
+Beide Prinzipien sagen aus, dass man sich noch nicht auf die Apokalypse vorbereiten soll - aber diese sehrwohl im Hinterkopf behalten soll.
+
+Das YAGNI-Prinzip legt einen speziellen Fokus auf den Hang von Programmierern, Library-funktionen zu schreiben, "die man vielleicht später einmal brauchen kann".
+Dies soll man vermeiden, denn es kostet nur Zeit sich jetzt schon auf die Probleme der Zukunft vorzubereiten. Um trotzdem die Wartbarkeit beizubehalten, empfiehlt es sich jedoch, sich schon *Gedanken* darüber zu machen, welche Probleme in der Zukunft auftreten können, und wie viele Änderungen am bestehenden Code dafür zu machen wären. 
+Der Code sollte dann so progammiert werden, dass diese Änderungen möglichst minimal sind - aber trotzdem jeder programmierte Codeteil ein bereits bestehendes Problem löst.
+
+== Was sind Style Guides und wozu sind sie nützlich?
+Style Guides sind einfache Programmiervorschriften - betriebsintern, oder von weit verbreiteten Standards festgelegt. 
+
+Diese Programmiervorschriften sagen aus, wie bestimmte häufig auftretende Probleme zu lösen sind - welche API's und Libraries zu verwenden sind, beziehungsweise wie das generelle Codebild aussehen soll.
+Dies sorgt dafür, dass der gesamte Code einheitlich aussieht, und damit verständlich wird.
+
+Beispiele:
+ * Sind die Klammern bei Methoden in der selben, oder in der darauffolgenden Zeile zu setzen?
+ * String-Interpolation oder Concatenation?
+ * Low-Level-Ausgabefunktionen (System.out/console.log) oder ein Logger?
+
+Sprachen die einen besonderen Bedarf an Styleguides haben, sind solche, die dem Programmierer viel Freiheit lassen und bei denen es viele Möglichkeiten gibt, dasselbe zu erreichen. Beispiele sind JavaScript oder C++. (Objektinstanzierung mit `new` oder `{}`, Strichpunkte erforderlich?, add_item oder AddItem oder addItem, etc...)
+
+=== Welche Tools für die Unterstützung mit StyleGuides gibt es?
+Das bekannteste Tool ist ESLint, ein JavaScript-Programm, welches auf der Basis eines umfangreichen Regelsets den geschriebenen JavaScript code nach Schönheitsfehlern untersucht, und in vielen Fällen auch fixed.
+
+Für C++ gibt es cpplint, welcher ähnlich funktioniert.
+
+Viele moderne Programmiersprachen kommen mit einem vordefinierten Styleguide, welcher bereits von IDEs forciert wird.
+
+== Was ist ein CodeReview?
+Sowohl im Open-Source- als auch im Kommerzbereich ist es üblich, dass Code von einem zweiten Programmierer probegelesen wird. 
+Dies kann überblicksartig oder zeile für Zeile erfolgen. 
+Es wird empfohlen, dass in einer durchgehenden Review-Session nie mehr als 400 Zeilen genau betrachtet werden, da dann die Konzentration des Probelesers deutlich nachlässt.
+Bei vielen VCS-Servern wie GitHub oder GitLab gibt es eine eingebaute Möglichkeit, CodeReviews nach PullRequests durchzuführen.
+
+=== Welchem Zweck dient ein CodeReview?
+Wenn zwei Programmierer denselben Code lesen, ist es umso wahrscheinlicher dass Fehler und Verletzungen der Programmierstandards gefunden werden.
+
+Beispiel::
+    Wenn ein Programmiere eine API nicht kennt, und sie selber ausprogrammiert,kann der Reviewer ihn darauf aufmerksam machen, und so CodeVerdopplung vermeiden, und somit die Wartbarkeit und CodeQualität sicherstellen.
+
+== Wozu dient die Dokumentation?
+Man dokumentiert, um seinen Code Wartbar zu halten. Außerdem hilft Dokumentation oft, Codeverdopplung zu vermeiden, da ein nicht dokumentiertes API leicht übersehen wird, und von einem unwissenden neu implementiert wird.
+
+=== Welche Tools gibt es hierfür?
+
+==== Was ist ReadTheDocs?
+ReadTheDocs ist ein Standard und ein Webservice für statische Dokumentationen, welche außerhalb des Codes stattfinden. Dies ist hilfreich für Bedienungsanleitungen und Guides für APIs. Mit Tools wie "Sphinx" oder "MkDocs" können Mardown-Sprachen in HTML umgewandelt werden, welche dann von "ReadTheDocs" gratis gehostet werden. Außerdem stellt "ReadTheDocs" einige Standards zur verfügung, um Dokumentationen einheitlich zu halten.
+
+ReadTheDocs ist *kein* Generator für Dokumentationen
+
+==== Was ist Sphinx oder MkDocs?
+Sphinx und MkDocs sind tools, welche Markdown-Sprachen in mehr oder weniger schöne HTML-Seiten umwandelt, welche speziell für Dokumentationen designed wurden.
+
+Ein Aufkömmling hierbei ist SlateDocs, ein Generator, welcher sich speziell auf die Bedürfnisse von modernen Programmierern konzentriert. Sie werben damit schöne und interaktive Dokumentationen für APIs zu machen. Verwendet wird Slate zum Beispiel von Travis-CI und der API-Seite der NASA.
+
+== Wozu Testet man?
+Man testet, um den Code automatisch nach Fehlern zu durchsuchen, und vor allem sicherzustellen, dass der Code sich so verhält, wie man spezifiziert hat.
+
+Mehr Informationen dazu findet man in den UnitTesting Referaten.
+
+== Was beschreibt CCI?
+CCI ist Continuous Code Inspection - ein Teil der Continuous Integration beziehungsweise des Continuous Deployments.
+
+Dabei geht es darum, Code sofort automatisiert durchchecken zu lassen, sobald man ihn auf den VCS-Server seiner Wahl pushed. Der Code wird dann nach Schönheitsfehlern und "Code-Smells" durchsucht, um einen die CodeQualität zu gewährleisten.
+
+Inwieweit der Code inspiziert wird - ob rein nach Schönheit, oder auch nach Security oder Programmierfehlern - hängt von den Verwendetetn Tools ab
+
+=== Welche Tools zur CCI gibt es?
+
+==== Was ist CodeClimate?
+CodeClimate ist ein weit verbreiteter kommerzieller Service für die Continuous Code Inspection. Oft kann man bei Github an den "Badges" erkennen, dass eine Library "CodeClimate A" hat, was bedeutet, dass dieses Repository durch den CodeClimate-Service gechecked wurde, und anhand vieler Kriterien als hochqualitativ eingestuft wurde. Kriterien gehen von einfachen Schönheitsfehlern, bis hin zu recht verworrenen Security-Issures, wobei *-Injection attacken zu den einfacheren gehören.
+
+CodeClimate bietet ihre Services Gratis für Open-Source und Startups an.
+
+Codacy ist ein Konkurrenzprodukt zu CodeClimate
+
+==== Was ist SonarQube?
+SonarQube ist eine self-hosted Alternative zu CodeClimate und Codacy.
