@@ -51,7 +51,8 @@ Im nachfolgenden Beispiel ist ein Testfall erklärt anhand des Logins bei Gmail.
     * Passwort eingeben
     * Einloggen Button klicken
 * Erwartetes Ergebnis: Emails werden angezeigt
-https://blog.testlodge.com/how-to-write-test-cases-for-software-with-sample/
+
+Quelle: https://blog.testlodge.com/how-to-write-test-cases-for-software-with-sample/
 
 ## JUnit
 ### Allgemein
