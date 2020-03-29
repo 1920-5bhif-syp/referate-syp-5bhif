@@ -10,6 +10,7 @@
     <br>2.1 [Allgemein](#allgemein)
     <br>2.2 [Lifecycle](#lifecycle)
     <br>2.3 [JUnit 5](#junit-5)
+    <br>2.4 [Projektaufbau](#projektaufbau)
 
 ## Allgemeines über Testen
 Die offizielle Definition für einen Softwaretest lautet: "Ein Software Test prüft und bewertet Software auf Erfüllung der für ihren Einsatz definierten Anforderungen und misst ihre Qualität. Die Erkenntnisse werden zur Fehlerbehebung genutzt."
@@ -104,3 +105,35 @@ Dies führt zu einer schöneren Ausgabe.
 void booking_checkin() {
 }
 ```` 
+
+### Projektaufbau
+Wird das Testprojekt mit dem Build-Tool Maven realisiert, müssen folgende Dependencies ins pom.xml eingebunden werden:
+````
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.6.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.junit.platform/junit-platform-engine -->
+    <dependency>
+        <groupId>org.junit.platform</groupId>
+        <artifactId>junit-platform-engine</artifactId>
+        <version>1.6.0</version>
+        <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.assertj/assertj-core -->
+    <dependency>
+        <groupId>org.assertj</groupId>
+        <artifactId>assertj-core</artifactId>
+        <version>3.11.1</version>
+        <scope>test</scope>
+    </dependency>
+</dependencies>
+````
+
+Als Scope wird dabei "test" festgelegt. AssertJ wird verwendet für die Assertions, da AssertJ eine sehr gute Intellisense-Unterstützung anbietet und passende Methoden vorgeschlagen werden. Früher wurde Hamcrest verwendet.
