@@ -3,7 +3,7 @@
 1. [Allgemeines über Testen](#allgemeines-über-testen)
     <br>1.1 [Gründe](#gründe)
     <br>1.2 [V-Modell](#v-modell)
-    <br>1.3 [White-Box vs. Black-Box-Tests](#white-box-vs.-black-box-tests)
+    <br>1.3 [White-Box vs. Black-Box-Tests](#white-box-vs-black-box-tests)
     <br>1.4 [Test-Driven-Development](#test-driven-development)
     <br>1.5 [Testfall Beispiel](#testfall-beispiel)
 2. [JUnit](#junit)
@@ -53,3 +53,53 @@ Im nachfolgenden Beispiel ist ein Testfall erklärt anhand des Logins bei Gmail.
 * Erwartetes Ergebnis: Emails werden angezeigt
 https://blog.testlodge.com/how-to-write-test-cases-for-software-with-sample/
 
+## JUnit
+### Allgemein
+JUnit ist eine Bibliothek für Java, um Unit-Tests durchzuführen.
+Die aktuelle JUnit Version ist 5. Seit JUnit 5 gibt es eine neue Architektur. Statt einem großen JAR-File gibt es nun 3 Module. Zum einen gibt besteht es aus JUnit Platform, welche das Fundament bildet und welches den Exekuter etc. beinhaltet.
+Die eigentlich JUnit 5 Funktionalität befindet sich in JUnit Jupiter. In JUnit Vintage befindet sich noch der Support von JUnit 3 und 4. JUnit ist ein Framework zum einfachen Testen von Modulen und Algorithmen, für Java Programme. Es wird hauptsächlich für Unit Tests eingesetzt. Der Name JUnit Jupiter kommt daher das der Jupiter der 5-te Planet aus unserem Sonnensystem ist.
+
+### Lifecycle
+Der Lifecycle einer Testklasse ist durch verschiedene Methoden aufgebaut, die in nachstehendem Diagramm abgebildet sind. Wichtig dabei ist, dass vor jeder Testmethode der Konstruktor aufgerufen wird. Dies ist etwas ungewöhnlich führt aber dazu, dass sich die Tests nicht gegenseitig beeinflussen.
+
+![Lifecycle](images/lifecycle.png)
+
+### JUnit 5
+Neuerungen in JUnit 5:
+
+* Assertions und Lambda: In JUnit 5 gibt es Assertions die mehrere Assertions zusammen überprüfen. Vorteil dabei ist, dass falls eine Assertion fehlschlägt die restlichen dennoch ausgeführt werden. Ein weiterer Vorteil ist, dass nun auch Lambda Expressions verwendet werden können.
+
+````
+assertAll("Do many assertions.", () -> {
+            assertNotNull(actual);
+            assertEquals(expAge, actual);
+        });
+````
+
+* @Disabled-Annotation: Diese Annotation führt dazu, dass die Tests nicht ausgeführt werden jedoch angezeigt werden. In Pipilines wie Jenkins führt das dazu, dass der Build nicht fehlschlägt, falls die Testfunktionalität noch nicht implementiert wurde.
+
+* Nested-Klassen: In JUnit 5 gibt es nun Nested-Klassen, welche in eine andere Klasse integriert werden können.
+
+````
+@Nested
+    class Book{
+        @Test
+        void booking_checkin() {
+        }
+
+        @Test
+        void booking_checkout() {
+        }
+    }
+````
+
+Dies führt zu einer schöneren Ausgabe.
+
+* DisplayName-Annotation: Mit dieser Annotation kann nun ein Testfallname vergeben werden. Außerdem können noch auch andere Symbole wie Smileys etc. verwendet werden können.
+
+````
+@Test
+@DisplayName("booking successfull test")
+void booking_checkin() {
+}
+```` 
