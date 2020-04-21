@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="54954eff-d4ca-4222-baf7-2a733ac3dcc5" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1TT7d1NaM4AlrPVcHZET3TtpIwD" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="at.htl.selenium.DAPerformance.pages" />
+      <recent name="at.htl.selenium.pages" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rened\Google Drive\5. Klasse\SYP\Selenium\SeleniumExampleTests\src\test\java" />
+      <recent name="C:\Users\rened\Google Drive\5. Klasse\SYP\Selenium\SeleniumExampleTests\src\test" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.simpleExample.testGoogle">
+    <configuration name="PerformanceToolTests.t010StartPerformanceTool" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumExampleTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.selenium.DAPerformance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.selenium.DAPerformance" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.selenium.DAPerformance.PerformanceToolTests" />
+      <option name="METHOD_NAME" value="t010StartPerformanceTool" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StressTestingToolTests.t010StartStressTestingTool" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumExampleTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.selenium.DAPerformance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.selenium.DAPerformance" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.selenium.DAPerformance.StressTestingToolTests" />
+      <option name="METHOD_NAME" value="t010StartStressTestingTool" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="simpleExample" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumExampleTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.selenium.simpleGoogleExample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.selenium.simpleGoogleExample" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.selenium.simpleGoogleExample.simpleExample" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="simpleExample.testGoogle" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumExampleTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.selenium.simpleGoogleExample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.selenium.simpleGoogleExample" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.selenium.simpleGoogleExample.simpleExample" />
+      <option name="METHOD_NAME" value="testGoogle" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="simpleExample.testSelenium" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SeleniumExampleTests" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="at.htl.selenium.simpleGoogleExample.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="at.htl.selenium.simpleGoogleExample" />
+      <option name="MAIN_CLASS_NAME" value="at.htl.selenium.simpleGoogleExample.simpleExample" />
+      <option name="METHOD_NAME" value="testSelenium" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.simpleExample.testGoogle" />
+        <item itemvalue="JUnit.PerformanceToolTests.t010StartPerformanceTool" />
+        <item itemvalue="JUnit.StressTestingToolTests.t010StartStressTestingTool" />
+        <item itemvalue="JUnit.simpleExample" />
+        <item itemvalue="JUnit.simpleExample.testSelenium" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="54954eff-d4ca-4222-baf7-2a733ac3dcc5" name="Default Changelist" comment="" />
+      <created>1573472314819</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1573472314819</updated>
+      <workItem from="1573472332189" duration="22845000" />
+      <workItem from="1573633982873" duration="2768000" />
+      <workItem from="1573660362382" duration="18550000" />
+      <workItem from="1574149137250" duration="38000" />
+      <workItem from="1587450411320" duration="130000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="431" key="GridCell.Tab.0.bottom" timestamp="1587450540442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="431" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587450540442" />
+    <state width="1877" height="431" key="GridCell.Tab.0.center" timestamp="1587450540442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="431" key="GridCell.Tab.0.center/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587450540442" />
+    <state width="1877" height="431" key="GridCell.Tab.0.left" timestamp="1587450540442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="431" key="GridCell.Tab.0.left/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587450540442" />
+    <state width="1877" height="431" key="GridCell.Tab.0.right" timestamp="1587450540442">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="431" key="GridCell.Tab.0.right/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1587450540442" />
+  </component>
+</project>

@@ -1,0 +1,137 @@
+$title-font-size: 18px;
+$subtitle-font-size: 16px;
+$font-color: rgba(0,0,0,.87);
+$settings-title-font-size: 18px;
+
+
+.tab-group{
+    height: 100%;
+}
+
+.dialog {
+    display: flex;
+    flex-direction: column;    
+    justify-content: space-between;       
+    height: 100%;     
+}
+
+.dialog-content {
+    overflow: hidden;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;  
+    height: 35.5em;
+}
+
+.detail-view-container {
+    height: auto;
+}
+
+.dialog-title {
+    text-align: center; 
+    margin: 2px;
+    padding-bottom: 5px;      
+    font-size: $settings-title-font-size;
+}
+.dialog-sub-title{
+    text-align: left; 
+    margin: 2px;
+    font-size: $subtitle-font-size;
+    padding-bottom: 15px;
+}
+
+.columns{
+    display: flex;
+    flex-direction: row;    
+
+    .left-column{
+        border-right: 1px solid lightgray;      
+        display: flex;        
+        width: 100%;  
+        flex-direction: row;
+        justify-content: flex-start;       
+        padding-left: 20px; 
+        margin-bottom: 5px;               
+    }
+
+    .right-column{
+        display: flex;        
+        width: 100%;        
+        flex-direction: row;        
+        justify-content: flex-start;    
+        padding-left: 20px;      
+    }
+
+    .indent-column {
+        padding-left: 30px;
+        display: flex;        
+        flex-direction: column;
+        justify-content: flex-start;
+
+        mat-form-field{
+            width: 300px;
+        }
+    }            
+    
+    .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
+
+.mat-subheader {
+    padding: 0px !important;
+}
+
+.mat-list {
+    overflow: auto;
+}
+
+.mat-list-item {
+    padding: 0;
+
+    .mat-list-item-content {
+        height: 30px !important;
+        padding: 0 !important;
+        display: flex;
+        flex-direction: row;    
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .mat-icon {
+        margin-bottom: 15px;
+        color: $font-color;
+
+        .fa {
+            font-size: 15px;
+        }
+
+        .mat-list-text {
+            color: $font-color;   
+        }
+    }
+}
+
+.flexbox-colum-fill-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.flexbox-colum-fill-outer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-tab-body-content {
+    height: auto !important;
+}
+
+.red-text {
+    color: red;
+}

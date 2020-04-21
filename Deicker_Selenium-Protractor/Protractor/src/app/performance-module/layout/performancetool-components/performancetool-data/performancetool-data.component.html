@@ -1,0 +1,20 @@
+<div>
+  <div id="dirSelectionSection">
+    <mat-form-field>
+      <mat-label>Directories</mat-label>
+      <mat-select [(ngModel)]="currDir" (click)="loadDirectories()" (selectionChange)="dirSelectionChanged()">
+        <mat-option *ngFor="let directory of directories" [value]="directory">
+          {{directory}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div id="tabSection">
+      <mat-tab-group [@.disabled]="true" style="width: 100vw">
+        <mat-tab *ngFor="let statistic of statistics" label={{statistic.measuredComponent}}>
+          <app-statistic class="statisticSection" [directory] = "currDir" [statistic]="statistic"></app-statistic>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+</div>

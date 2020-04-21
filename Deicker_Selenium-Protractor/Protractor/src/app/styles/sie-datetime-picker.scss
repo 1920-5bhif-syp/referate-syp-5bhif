@@ -1,0 +1,11 @@
+.list-container {
+  .list{
+    mat-button-toggle-group {
+      width: 100%;
+      .mat-button-toggle-button{
+        width: 100%;
+      }
+    }
+  }
+}
+

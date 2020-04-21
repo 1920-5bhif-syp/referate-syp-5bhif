@@ -1,0 +1,25 @@
+<mat-form-field style="width: 30%">
+  <mat-label>{{labels.files}}</mat-label>
+  <mat-select [(ngModel)]="selectedFile" (click)="loadFiles()" (selectionChange)="fileSelectionChanged()"
+    style="min-width:100%">
+    <mat-option *ngFor="let file of files" [value]="file" style="min-width:100%">
+      {{file}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<div *ngIf="dataLoaded">
+  <mat-tab-group>
+    <div *ngFor="let createFileResultGroup of stressTestingGroupResult.createFileResults">
+      <div *ngIf="createFileResultGroup.groupResult.length > 0">
+        <mat-tab label="{{createFileResultGroup.totalFileSize*1024 | filesize}}">
+          <app-create-files-statistics [createFileResultGroup]="createFileResultGroup"></app-create-files-statistics>
+        </mat-tab>
+      </div>
+    </div>
+
+    <mat-tab label="{{labels.zipFolderResults}}">
+      <app-zip-folder-statistics [createZipFolderResults]="stressTestingGroupResult.createZipFolderResults"></app-zip-folder-statistics>
+    </mat-tab>
+  </mat-tab-group>
+</div>

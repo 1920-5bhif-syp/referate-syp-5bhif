@@ -1,0 +1,24 @@
+<p-table [value]="[{}]" [responsive]="true"  styleClass="shadowless">
+  <ng-template pTemplate="body">
+    <tr class="borderless">
+      <td>
+        <span class="ui-column-title"></span>
+        <app-statistic-chart [categories]= [labels.writeDuration] [series]="seriesWriteDuration" [titleText]=[labels.duration]></app-statistic-chart>
+      </td>
+      <td>
+        <span class="ui-column-title"></span>
+        <app-statistic-chart [categories]=[labels.readDuration] [series]="seriesReadDuration" [titleText]=[labels.duration]></app-statistic-chart>
+      </td>
+    </tr>
+    <tr class="borderless" >
+      <td>
+        <span class="ui-column-title"></span>
+        <app-statistic-chart [categories]= [labels.writeMBPerSecond] [series]="seriesWriteMBPerSecond" [titleText]=[labels.mbPerSecond]></app-statistic-chart>
+      </td>
+      <td>
+        <span class="ui-column-title"></span>
+        <app-statistic-chart [categories]=[labels.readMBPerSecond] [series]="seriesReadMBPerSecond" [titleText]=[labels.mbPerSecond]></app-statistic-chart>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

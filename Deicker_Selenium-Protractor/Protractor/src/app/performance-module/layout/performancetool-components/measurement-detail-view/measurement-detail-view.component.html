@@ -1,0 +1,35 @@
+<div>
+    <div>
+        <button mat-button (click)="loadData(-1)" style="float:left;" [disabled]="actualFileNumber == 0">
+          <mat-icon>arrow_left</mat-icon>
+          {{labels.previous}}
+        </button>
+    </div>
+    <div>
+        <button mat-button (click)="loadData(1)" style="float:left;" [disabled]="actualFileNumber + 1 == amountOfFiles">
+          {{labels.next}}
+          <mat-icon>arrow_right</mat-icon>
+        </button>
+    </div>
+    <div>
+        <p style="float:right;font-family:Arial;">{{labels.file}} {{actualFileNumber + 1}} {{labels.of}} {{amountOfFiles}}</p>
+    </div>
+    <button mat-button (click)="loadData(-2)" style="float:left;" [disabled]="amountOfFiles <= 1">Show all</button>
+
+    <form [formGroup] = "formGroup">
+      <mat-form-field style="padding-left:0.5vw;width:5vw">
+        <input matInput placeholder={{labels.tolerance}} formControlName="tolerance" type="number" (change)="loadData(0)">
+      </mat-form-field>
+    </form>
+</div>
+
+<div *ngIf="loading && chartOptions">
+  <highcharts-chart
+  [Highcharts] = "Highcharts"
+  [options] = "chartOptions"
+  [(update)]="updateFlag"
+  [oneToOne]="true"
+  [callbackFunction]="hcCallback"
+  style = "max-height: 50vw; display: block;">
+</highcharts-chart>
+</div>

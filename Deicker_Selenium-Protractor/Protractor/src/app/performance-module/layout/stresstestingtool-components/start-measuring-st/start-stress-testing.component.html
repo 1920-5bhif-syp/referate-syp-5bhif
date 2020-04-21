@@ -1,0 +1,82 @@
+<mat-card>
+  <mat-card-title>{{labels.stressTestingTool}}</mat-card-title>
+  <mat-card-content>
+    <form [formGroup] = "formGroup">
+      <mat-form-field style="width: 30%">
+        <input matInput placeholder={{labels.totalFileSize}} formControlName="totalFileSize" type="number">
+      </mat-form-field>
+      <mat-form-field style="width: 10%">
+        <mat-label>{{labels.sizeType}}</mat-label>
+        <mat-select formControlName="sizeTypeFile" style="min-width:100%">
+          <mat-option *ngFor="let sizeType of sizeTypes" [value]="sizeType" style="min-width:100%">
+            {{sizeType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <button mat-raised-button style="color: rgb(98, 126, 42)"
+        (click)="addMeasurementValueGroup()">{{labels.addGroup}}
+      </button>
+      <mat-form-field style="width: 10%; float: right">
+        <mat-label>{{labels.sizeType}}</mat-label>
+        <mat-select formControlName="sizeTypeZipFolder" style="min-width:100%">
+          <mat-option *ngFor="let sizeType of sizeTypes" [value]="sizeType" style="min-width:100%">
+            {{sizeType}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field style="width: 10%; float:right">
+        <input matInput placeholder={{labels.zipFolderSize}} formControlName="zipFolderSize" type="number">
+      </mat-form-field>
+      <mat-form-field style="width: 10%; float:right">
+        <input matInput placeholder={{labels.amountOfMeasurements}} formControlName="amountOfMeasurements" type="number">
+      </mat-form-field>
+    </form><br>
+    <mat-accordion>
+      <div *ngFor="let measurementValueGroup of measurementValueGroups">
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              {{labels.measurementGroup}}
+            </mat-panel-title>
+            <mat-panel-description>{{labels.fileSize}}: {{measurementValueGroup.totalFileSize*1024 | filesize}}</mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <button mat-raised-button style="color:rgb(206, 22, 22); margin-bottom:2%;"
+            (click)="deleteMeasurementValueGroup(measurementValueGroup)">{{labels.deleteGroup}}
+          </button>
+
+          <div *ngFor="let measurementValue of measurementValueGroup.measurementValues">
+            <mat-form-field style="width: 30%">
+              <input matInput placeholder={{labels.amountOfFiles}} [(ngModel)]="measurementValue.amountOfFiles" disabled>
+            </mat-form-field>
+
+            <mat-form-field style="width: 30%">
+              <input matInput placeholder={{labels.amountOfSubfolders}} [(ngModel)]="measurementValue.amountOfSubfolders" disabled>
+            </mat-form-field>
+
+            <button mat-raised-button style="color: rgb(206, 22, 22)"
+              (click)="deleteMeasurementValue(measurementValueGroup, measurementValue)">{{labels.delete}}
+            </button>
+          </div>
+          <form [formGroup]=" formGroup">
+            <mat-form-field style="width: 30%">
+              <input matInput formControlName="amountOfFiles" placeholder={{labels.amountOfFiles}} autocomplete="off" type="number">
+            </mat-form-field>
+
+            <mat-form-field style="width: 30%">
+              <input matInput placeholder={{labels.amountOfSubfolders}} formControlName="amountOfSubfolders" type="number">
+            </mat-form-field>
+
+            <button mat-raised-button style="color: rgb(98, 126, 42)"
+              (click)="addMeasurementValue(measurementValueGroup)">{{labels.add}}
+            </button>
+          </form>
+        </mat-expansion-panel>
+      </div>
+    </mat-accordion>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="startMeasurement()">{{labels.start}}</button>
+  </mat-card-actions>
+</mat-card>
+

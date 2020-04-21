@@ -1,0 +1,58 @@
+<mat-card>
+  <mat-card-title>{{labels.performanceTool}}</mat-card-title>
+  <mat-card-content>
+    <p-table [value]="[{}]" [responsive]="true" styleClass="shadowless">
+      <ng-template pTemplate="body">
+        <tr class="borderless">
+          <td>
+            <div>
+              <form [formGroup]="formGroup">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder={{labels.interval}} formControlName="interval" type="number">
+                </mat-form-field>
+              </form>
+            </div>
+          </td>
+          <td>
+            <div>
+              <form [formGroup]="formGroup">
+                <mat-form-field style="width: 100%">
+                  <input matInput placeholder={{labels.duration}} formControlName="duration" type="number">
+                </mat-form-field>
+              </form>
+            </div>
+          </td>
+        </tr>
+        <tr class="borderless">
+          <td>
+            <mat-slide-toggle [(ngModel)]="measureOptions[0]" color="primary">{{labels.cpu}}</mat-slide-toggle>
+          </td>
+          <td>
+            <mat-slide-toggle [(ngModel)]="measureOptions[1]" color="primary">{{labels.memory}}</mat-slide-toggle>
+          </td>
+        </tr>
+        <tr class="borderless">
+          <td>
+            <mat-slide-toggle [(ngModel)]="measureOptions[2]" color="primary">{{labels.disk}}</mat-slide-toggle>
+          </td>
+          <td>
+            <mat-slide-toggle [(ngModel)]="measureOptions[3]" color="primary">{{labels.pagingFile}}</mat-slide-toggle>
+          </td>
+        </tr>
+        <tr class="borderless">
+          <td>
+            <mat-slide-toggle [(ngModel)]="measureOptions[4]" color="primary">{{labels.enmServices}}
+            </mat-slide-toggle>
+          </td>
+          <td>
+            <mat-slide-toggle [(ngModel)]="measureOptions[5]" color="primary">{{labels.networkTraffic}}
+            </mat-slide-toggle>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="startMeasurement()">{{labels.start}}</button>
+  </mat-card-actions>
+</mat-card>

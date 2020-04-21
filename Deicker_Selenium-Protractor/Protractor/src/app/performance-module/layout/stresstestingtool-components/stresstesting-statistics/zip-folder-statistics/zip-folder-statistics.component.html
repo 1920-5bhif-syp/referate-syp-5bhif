@@ -1,0 +1,13 @@
+<p-table [value]="[{}]" [responsive]="true" styleClass="shadowless">
+  <ng-template pTemplate="body">
+    <tr class="borderless" style="max-height: 20%">
+      <td>
+        <app-statistic-chart [categories]=[labels.createZipFolderDuration]
+          [series]="seriesZipFolderDuration" [titleText]=[labels.duration]>
+        </app-statistic-chart>
+      </td>
+      <td>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>

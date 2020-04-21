@@ -1,0 +1,42 @@
+<mat-tab-group selectedIndex="0" (selectedTabChange)="changeTab($event)">
+  <mat-tab label="Start measuring">
+    <div style="width: 40%; float:left">
+      <p-table [value]="[{}]" [responsive]="true" styleClass="shadowless">
+        <ng-template pTemplate="body">
+          <tr class="borderless">
+            <td>
+              <app-start-measuring-pt *ngIf="tabIndex === 0"></app-start-measuring-pt>
+            </td>
+          </tr>
+          <tr class="borderless">
+            <td>
+              <app-start-measuring-st *ngIf="tabIndex === 0"></app-start-measuring-st>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+    <div style="width: 60%;float:right">
+      <p-table [value]="[{}]" [responsive]="true" styleClass="shadowless">
+        <ng-template pTemplate="body">
+          <tr class="borderless">
+            <td>
+              <app-hardwareinformation
+                *ngIf="tabIndex === 0"
+              ></app-hardwareinformation>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </mat-tab>
+  <mat-tab label="Show PerformanceTool statistics"><br/>
+    <app-performancetool-data *ngIf="tabIndex === 1"></app-performancetool-data>
+  </mat-tab>
+  <mat-tab label="Show StresstestingTool statistics"><br/>
+    <app-stresstesting-statistics *ngIf="tabIndex === 2"></app-stresstesting-statistics>
+  </mat-tab>
+  <mat-tab label="Show Live Data"><br/>
+    <app-live-data *ngIf="tabIndex === 3"></app-live-data>
+  </mat-tab>
+</mat-tab-group>

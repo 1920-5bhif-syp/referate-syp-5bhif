@@ -1,0 +1,71 @@
+<mat-form-field>
+  <mat-label>{{labels.directories}}</mat-label>
+  <mat-select [(ngModel)]="selectedDirectory" (click)="loadDirectories()" (selectionChange)="dirSelectionChanged()">
+    <mat-option *ngFor="let directory of directories" [value]="directory">
+      {{directory}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-card>
+  <mat-card-title>{{labels.cpu}}</mat-card-title>
+  <mat-card-content *ngIf="isLoaded">
+    <h4>{{hardwareInformation.cpu.name}}</h4>
+    <p>{{labels.architecture}}: {{hardwareInformation.cpu.architecture}}</p>
+    <p>{{labels.logicalProcessors}}: {{hardwareInformation.cpu.logicalProcessors}}</p>
+  </mat-card-content>
+</mat-card><br>
+
+<mat-card>
+  <mat-card-title>{{labels.networkCards}}</mat-card-title>
+  <mat-card-content *ngIf="isLoaded">
+    <div *ngFor="let netWorkCard of hardwareInformation.networkCards">
+      <p>{{netWorkCard.name}}</p>
+    </div>
+  </mat-card-content>
+</mat-card><br>
+
+<mat-card>
+  <mat-card-title>{{labels.memory}}</mat-card-title>
+  <mat-card-content *ngIf="isLoaded">
+    <p>{{labels.storage }}: {{hardwareInformation.memory.totalSpace}} MB</p>
+  </mat-card-content>
+</mat-card><br>
+
+<mat-card>
+  <mat-card-title>{{labels.disk}}</mat-card-title>
+  <mat-card-content *ngIf="isLoaded">
+    <p-table [value]="[{}]" [responsive]="true" styleClass="shadowless">
+      <ng-template pTemplate="body">
+        <tr class="borderless">
+          <td *ngFor="let diskPartition of hardwareInformation.disk.diskPartitions">
+            <h4>{{diskPartition.title}}</h4>
+            <p>{{labels.totalSpace}}: {{diskPartition.totalSpace}} GB</p>
+            <p>{{labels.freeSpace}}: {{diskPartition.freeSpace}} GB</p>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </mat-card-content>
+</mat-card><br>
+
+<mat-card>
+  <mat-card-title>{{labels.enmPROServices}}</mat-card-title>
+  <mat-card-content *ngIf="isLoaded">
+    <p-table [value]="[{}]" [responsive]="true" styleClass="shadowless">
+      <ng-template pTemplate="body">
+        <tr class="borderless">
+          <td *ngFor="let service of hardwareInformation.enmServices">
+            <h4>{{service.serviceName}}</h4>
+          </td>
+        </tr>
+        <tr class="borderless">
+            <td *ngFor="let service of hardwareInformation.enmServices">
+              <mat-checkbox [(ngModel)]="service.isInstalled" [disabled]="true">{{labels.installed}}</mat-checkbox><br>
+              <mat-checkbox [(ngModel)]="service.isRunning" [disabled]="true">{{labels.running}}</mat-checkbox>
+            </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </mat-card-content>
+</mat-card>
