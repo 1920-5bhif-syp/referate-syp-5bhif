@@ -31,3 +31,5 @@
 ### [Load- und Stresstests](Auinger_Antensteiner_Load-%2CStresstest) von Thomas Antensteiner und Philipp Auinger (06.02.2020)
 
 ### [Scrum und Kanban](Stransky_Scrum-Kanban) von Lukas Stransky (24.03.2020)
+
+### [Design Patterns](Blümel_Design_Patterns) von Arno Blümel
