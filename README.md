@@ -12,6 +12,8 @@
 
 ### [Codequalität, Sonarqube](Mayrhofer_CodeQualitaet) von Erik Mayrhofer (19. Dezember 2019)
 
+### [Jasmine](Neuburger_Jasmine) von Jan Neuburger (21. April 2020)
+
 ### [Usability (Teil 2/2)](Nobis_Usability) von Julian Nobis (14. Jänner 2020)
 
 ### [JUnit](Leithenmayr_JUnit) von Stefan Leithenmayr (14. Jänner 2020)
