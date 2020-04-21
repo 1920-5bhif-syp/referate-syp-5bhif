@@ -1,0 +1,25 @@
+docker network ls
+
+docker network create mynetwork
+
+docker network inspect mynetwork
+
+docker container run --name net_nginx -d nginx
+
+docker network connect mynetwork net_nginx
+
+docker network inspect mynetwork
+
+docker container inspect net_nginx
+
+docker container stop net_nginx
+
+docker container rm net_nginx
+
+docker container run --name net_nginx -d --network mynetwork nginx:alpine
+
+---------------- dns
+
+docker container run --name net_nginx2 -d --network mynetwork nginx:alpine
+
+docker container exec -it net_nginx2 ping net_nginx

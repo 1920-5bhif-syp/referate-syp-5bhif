@@ -1,0 +1,7 @@
+docker container run --publish 8080:80 nginx
+
+docker container run -it --name our_nginx nginx bash
+
+docker container start our_nginx
+
+docker container exec -it our_nginx bash

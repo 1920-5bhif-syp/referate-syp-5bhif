@@ -4,6 +4,8 @@
 
 ### [Espresso](Prieschl_Espresso) von Fabian Prieschl (10. Dezember 2019)
 
+### [Docker](Schloemmer_Docker) von Leon Schlömmer (10. Dezember 2019)
+
 ### [Git, GitHub, GitKraken](Brandmair_Git) von Stefan Brandmair (12. Dezember 2019)
 
 ### [Test-Doubles, Mocking](Schwarcz_TestDoubles) von Florian Schwarcz (17. Dezember 2019)
