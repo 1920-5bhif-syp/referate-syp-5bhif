@@ -1,0 +1,5 @@
+<mat-form-field class="iban-form">
+  <input matInput placeholder="IBAN" [(ngModel)]="iban" required>
+</mat-form-field>
+<button mat-raised-button color="primary" class="iban-button" (click)="check()">Checken!</button>
+{{errorMsg}}
