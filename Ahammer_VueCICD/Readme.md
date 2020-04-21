@@ -1,6 +1,6 @@
 ## VueJS CI/CD
 
-**Was ist der Unterschied zwischen CI und CD (und der anderen CD)?**
+### Was ist der Unterschied zwischen CI und CD (und der anderen CD)?
 
 Die Abkürzung CI/CD hat unterschiedliche Bedeutungen. „CI“ bedeutet Continuous Integration, also der Automatisierungsprozess für Entwickler. Bei einer erfolgreichen CI werden regelmäßig neue Codeänderungen für Apps entwickelt, geprüft und in einem gemeinsamen Repository zusammengeführt. Damit soll der Konflikt verhindert werden, den zu viele Branches einer App verursachen können, wenn sie zeitgleich entwickelt werden.
 
@@ -16,7 +16,7 @@ Continuous Deployment (das andere „CD“) kann sich auf die automatische Freig
 *https://s3.amazonaws.com/media-p.slid.es/uploads/1141232/images/6884526/Continous-Integration-and-Agile-Roadmap.png*
 
 
-**Wie funktioniert eine Pipeline in Jenkins?**
+### Wie funktioniert eine Pipeline in Jenkins?
 
 Grundsätzlich werden Verzeichnisse an die Jenkinspipeline genüpft und entweder über die visuelle Oberfläche oder über ein von außen angegebenes Jenkinsfile.
 Vorteile gegenüber des visuellen Skriptens direkt auf dem Jenkinsserver bietet das externe File indem es nicht auf dem Server gebunden ist und jederzeit auf anderen übertragbar ist.
@@ -26,7 +26,7 @@ Grundsätzlich wird die Pipeline in Buildsteps getrennt und so schritt für schr
 <img src="https://3ovyg21t17l11k49tk1oma21-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/Screen-Shot-2018-07-30-at-7.56.54-AM.png">
 *www.netda-ssl.com*
 
-**Wie funktioniert Github Actions?**
+### Wie funktioniert Github Actions?
 
 Github Actions ist das Pendant zu Jenkins von Github.
 Hier wird im .github Verzeichnis eines Projekts einen Workflow im main.yml angegeben.
