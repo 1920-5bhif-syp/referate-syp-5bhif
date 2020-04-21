@@ -52,3 +52,9 @@ Mittels ```jasmine.clock().install()``` wird diese manuelle Uhr aktiviert und mi
 
 Mit der Funktion ```jasmine.clock().tick(n)``` läuft die Zeit n Ticks weiter nach vorne.
 Hat man also beispielsweise ein Timeout, das nach 10 Ticks ausschlägt kann man es im Test mit ```jasmine.clock().tick(11)``` sicherstellen, dass es ausgeführt wird.
+
+---
+
+==== Link zur Präsentation
+
+https://docs.google.com/presentation/d/1TVrl3wCffnHXNJILqPC27929tWuHzzdYFCztJPxkyuM/edit?usp=sharing
