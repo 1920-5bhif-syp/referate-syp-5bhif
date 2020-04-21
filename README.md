@@ -12,6 +12,8 @@
 
 ### [Usability (Teil 2/2)](Nobis_Usability) von Julian Nobis (14. Jänner 2020)
 
+### [JUnit](Leithenmayr_JUnit) von Stefan Leithenmayr (14. Jänner 2020)
+
 ### [Testen von Datenbanken](Steyrer_TestenVonDatenbanken) von Christian Steyrer (14. Jänner 2020)
 
 ### [Kubernetes](Kuchinka_Frech_Kubernetes) von Leon Kuchinka und Michael Frech (21. Jänner 2020)
