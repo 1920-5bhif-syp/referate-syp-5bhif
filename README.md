@@ -35,3 +35,5 @@
 ### [Scrum und Kanban](Stransky_Scrum-Kanban) von Lukas Stransky (24.03.2020)
 
 ### [Design Patterns](Blümel_Design_Patterns) von Arno Blümel
+
+### [Quarkus mit Spring Technologien](Weinberger_Datenbank-Versionierung) von David Weinberger
