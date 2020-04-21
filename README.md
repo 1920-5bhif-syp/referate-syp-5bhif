@@ -37,3 +37,6 @@
 ### [Design Patterns](Blümel_Design_Patterns) von Arno Blümel
 
 ### [Quarkus mit Spring Technologien](Weinberger_Datenbank-Versionierung) von David Weinberger
+
+### [Selenium-Protractor](Deicker_Selenium-Protractor) von Rene Deicker
+
