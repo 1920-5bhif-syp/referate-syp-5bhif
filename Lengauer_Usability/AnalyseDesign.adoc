@@ -1,0 +1,195 @@
+:sectnums:
+:toc:
+
+ifdef::backend-html5[]
+:twoinches: width='144'
+:full-width: width='100%'
+:half-width: width='50%'
+:half-height: height='50%'
+:half-size:
+:three-quarters-site:
+:thumbnail: width='60'
+endif::[]
+ifdef::backend-pdf[]
+:twoinches: pdfwidth='2in'
+:full-width: pdfwidth='100vw'
+:half-width: pdfwidth='50vw'
+:half-height: "height=50%"
+:half-size: pdfwidth='50%'
+:three-quarters-site: width='75%'
+:quarter-site: width='25%'
+:thumbnail: pdfwidth='20mm'
+endif::[]
+ifdef::backend-docbook5[]
+:twoinches: width='50mm'
+:full-width: scaledwidth='100%'
+:half-width: scaledwidth='50%'
+:half-size: width='50%'
+:half-height: height='50%'
+:three-quarters-site: width='75%'
+:thumbnail: width='20mm'
+endif::[]
+
+:imagesdir: ./images
+
+== Usability
+
+=== Warum Wert auf eine gute Usability legen?
+
+Durch eine gute Usability wird die Zufriedenheit der Kunden bzw. Nutzer gesteigert. Desto zufriedener die Kunden sind, desto mehr sind sie bereit zu zahlen und dadurch kann die Firma ihre Produkte noch weiterentwickeln bzw. verbessern. Außerdem wird die Produktivität der Nutzer gesteigert, da Fehler minimiert werden und Prozesse erleichtert werden. Doch hierfür sind einige Kompromisse mit dem Design zu schließen, da es ja nicht nur funktionieren soll, sondern auch gut ausschauen soll.
+
+Usability und Design sind beides Aspekte einer jeden Anwendung, jedoch mit unterschiedlichen Schwerpunkten. Das Design bezieht sich auf die ästhetischen Aspekte der Software bzw. Website und die Usability auf die Nutzungsqualität. Das folgende Zitat erklärt den Unterschied am besten: ”Usability bedeutet, alles mit geschlossenen Augen zu finden. Design ist es, wenn man trotzdem hinschaut.“.
+
+=== Normen und Richtlinien
+
+====  ISO 9241
+
+Die ISO 9241 ist eine internationale Norm, die die Richtlinien der Mensch-ComputerInteraktion beschreibt. Diese hatten sich ursprünglich in 17 Abschnitte gegliedert, zwischenzeitlich wurden weitere Teile aus anderen Normen hinzugefügt, die thematische 7 besser in diese Norm passen. Mittlerweile sind uber 400 Empfehlungen für fast alle Bereiche der Software-Gestaltung zu finden.
+
+==== Gestaltungsgesetze
+
+===== Gesetz der Ähnlichkeit
+Dies besagt, dass zusammengehörende Elemente durch Ähnlichkeit erkannt werden.Zum Beispiel durch die Form, Farbe, Größe etc.
+image::similarity.png[{half-size}]
+
+Ein Beispiel dafür wäre Jetbrains, welche ihre Produkt Icons immer den selben Stil geben. Somit werden diese Icons immer mit
+Jetbrains assoziiert.
+
+image::jetbrainsIcons.png[{half-size}]
+
+===== Gesetz der Nähe
+Dies besagt, dass Elemente mit geringeren Abstand als zusammengehörig wahrgenommen werden.
+
+image::proximity.png[{half-size}]
+
+===== Gesetz der guten Gestalt
+Dies besagt, dass ein Element durch prägnantere Farben oder der Größe in den Mittelpunkt rücken kann.
+
+Ein Beispiel dafür wäre in einem Fließtext Hyperlinks, die sich visuell vom restlichen Text unterscheiden sollten.
+
+image::simplicity.png[{half-size}]
+
+===== Gesetz der Geschlossenheit
+Unser Gehirn ist bestrebt, mehrere Objekte möglichst als eine Einheit zu sehen. Dabei ist nicht immer eine vollständige Geschlossenheit notwendig, da bei bekannten Formen unser Gehirn diese Linie vervollständigt.
+
+image::nocube.png[{quarter-site}]
+
+Ein praktisches Beispiel wäre die Amazon Website. Hier kann eine gemeinsame Einheit zum Beispiel die Produktdarstellung sein oder die  Produkteigenschaften werden als eine gesehen.
+
+image::amazonAirpods.png[{three-quarters-site}]
+
+===== Gesetz der Kontinuität
+Es besagt, dass Menschen eine Linie oder Kurve im Sinne ihrer bisherigen Linienführung fortsetzten. Selbst wenn sich in einem Diagramm zwei Linien schneiden.
+
+image::continuation.png[{half-size}]
+
+Dies spielt bei der Ausrichtung von Elementen eine Rolle, welche alle nach einer Fluchtlinie ausgerichtet sein sollten. Zum Beispiel, ein Menu lässt sich mit einer Ausrichtung besser lesen, als ohne Ausrichtung.
+
+image::menu.png[{half-size}]
+
+===== Gesetz des gemeinsamen Schicksals
+Auch sehr unterschiedliche Elemente, die sich in die gleiche Richtung bewegen, nehmen wir als zusammengehörige Gruppe wahr.
+
+image::fate.png[{half-size}]
+
+Ein Beispiel im Webdesign hierfur wäre ein sogennantes Akkordion. Dieses Element liefert Informationen, sobald der User damit interagiert.
+
+image::projectOverview.png[{three-quarters-site}]
+
+===== Gesetz der gemeinsamen Regionen
+Dies hat vor allem dann Bedeutung, wenn mehrere Elementgruppen auf dem Screen sind. Da wir gemeinsame Regionen als zusammengehörig wahrnehmen.
+
+image::commomregion.png[{half-size}]
+
+===== Gesetz der Verbundenheit
+Dies besagt, dass miteinander verbundene Formen als eine Einheit wahrgenommen werden. Dieses Gesetz kann andere auch übersteuern. Sprich, wenn dieses Gesetz Anwendung findet, sind andere Gesetze wie das Gesetz der Nähe oder das Gesetz der Ähnlichkeit untergeordnet.
+
+image::connectedness.png[{half-size}]
+
+==== Informationsdarstellung bzw. Page Design
+
+==== Unterscheidbarkeit
+Die angezeigten Informationen können gut unterschieden werden. Ein Beispiel dafür wäre, Pflichtfelder bei einem Formular farblich herauszuheben.
+
+image::difference.png[{three-quarters-site}]
+
+==== Klarheit
+Die Informationen werden schnell und korrekt vermittelt. 
+Dabei sollte auf die Platzierung der wichtigen Informationen geachtet werden, da die Aufmerksamkeit auf den Bildschirm verteilt ist. 
+Dies bedeutet, die wichtigsten Informationen möglichst oben links zu positionieren und die wenig wichtigen unten rechts.
+
+image::attention.png[{half-size}]
+
+==== Kürze
+Es werden nur so viele Informationen angezeigt, wie zur Aufgabenerfüllung nötig ist. Keine unnötigen Wortverlängerungen bei Feldbezeichnern, etc..
+
+==== Konsistenz
+Gleichartige Daten werden durchgängig gleich dargestellt. Zum Beispiel die Adressdaten immer in der Reihenfolge Name, Straße, Ort.
+
+==== Lesbarkeit
+Die Informationen sind leicht lesbar, durch ausreichende Schriftgröße und gut lesbare Schriftart. Die Größe sollte zwischen 16 und 20px liegen.
+
+==== Verständlichkeit
+Die Bedeutung der dargestellten Information ist leicht verständlich und gut erinnerbar. Hierbei sind gut merkbare Icons sehr hilfreich.
+
+
+=== Navigationsstuktur
+
+Navigation auf einer Website ist vergleichbar mit der Navigation in einer unbekannten Stadt. Es wird Kartenpunkten gefolgt, um das gewünschte Ziel zu erreichen. Der einzige Unterschied besteht darin, dass der Ersteller der Website dafür verantwortlich ist, den Besucher von Punkt A nach Punkt B zu leiten.
+
+Die Navigationsstruktur kann erhebliche Auswirkungen auf Verkäufe und Absprungraten haben. Wenn die Besucher nicht intuitiv wissen, was zu tun ist, beziehungsweise sie sich nicht zurechtfinden, verlassen sie die Website und suchen womöglich bei der Konkurrenz.
+
+Dies gilt es zu verhindern. Daher ist eine klare, hierarchische Website-Navigation notwendig. Mit deren Hilfe die Besucher finden, was sie wollen und brauchen.
+
+==== Wichtigkeit
+Um auf die Stadtanalogie zurückzukehren. Wenn eine neue Stadt besucht wird, ist meist im Kopf, welche Sehenswürdigkeiten besucht werden sollen. Jedoch nicht der genaue Weg zu den einzelnen Punkten. Städte helfen den Besuchern mittels einer Beschilderung. Außerdem helfen die Schilder dabei neue Besucher zu gewinnen, wenn möglicherweise eine bestimmte Sehenswürdigkeit nicht auf der Liste steht, aber ein Schild darauf hinweist und es gleich um die Ecke ist, wird doch einmal vorbeigeschaut. Die Navigation auf der Website dient genau dem gleichen Zweck.
+
+==== Beschreibende Labels
+Für die Suchmaschinenoptimierung ist es wichtig, nicht Labels wie Produkte und Services zu verwenden. Besser ist es, für jedes Produkt bzw. jeden Service eine eigene Seite zu gestalten. Der Grund warum es so gestaltet werden sollte, ist, dass niemand nach Produkt sucht, sondern nach den Namen des Produktes.
+
+image::navbad.png[{three-quarters-site}]
+image::navgood.png[{three-quarters-site}]
+
+==== Vermeidung von Format Beschreibungen
+Die Verwendung von Labels wie "Fotos", "Videos" sollte vermieden werden, da dies dem Benutzer nur die Information gibt, welches Format er in diesem Reiter findet. Jedoch keinen Hinweis, welche Informationen er finden kann. Doch die Benutzer besuchen die Website, um Antworten zu finden.
+
+==== Vermeidung von Dropdowns
+Beliebt in der Verwendung sind sie, keine Frage. Jedoch sollten diese nicht im Menü genutzt werden.
+Usability Studien zeigen, dass User ihre Augen schneller bewegen als ihre Maus. Wenn sie mit der Maus auf einen Menüeintrag zeigen, haben sie wahrscheinlich bereits beschlossen, darauf zu klicken, und dann haben Sie ihnen weitere Optionen gegeben. Und dies ist wie ein Stich in den Kopf des Users. Noch wichtiger ist, dass Dropdowns Besucher dazu animieren wichtige Seiten zu überspringen.
+
+Jedoch zeigen Usability Studien, dass eine Form des Dropdowns gut bei den Usern ankommt. Nämlich das "mega drop down". Dies bietet so viele Optionen, sodass sich dieser kleine Stich lohnt.
+
+image::megamenu.png[]
+
+==== Anzahl der Links
+Die Anzahl der Links sollte gering gehalten werden. Aus dem Grund, dass sich das menschliche Kurzzeitgedächtnis ungefähr 7 Elemente plus/minus zwei, merken kann.
+
+Neuere Studien zeigen, dass das Gehirn zwar „Chunking“ als Methode zur Verbesserung des Erinnerungsvermögens im Kurzzeitgedächtnis einsetzt, die Anzahl jedoch von der Kategorie abhängt. Es kann sieben für Zahlen sein, aber nur fünf für Wörter.
+
+Unabhängig davon, je mehr Elemente sich in der Navigation befinden, desto schwieriger ist es, sich die Informationen zu merken und für den Besucher zu verarbeiten. Optisch ist acht viel mehr als sieben. Wenn es zu viele sind, könnten die Augen der Benutzer wieder wichtige Elemente überfliegen. Hierbei empfiehlt es sich die Elemente in Gruppen zu jeweils 5 Punkten aufzuteilen.
+
+==== Reihenfolge
+
+Auch die Reihenfolge der Elemente spielt eine wichtige Rolle. Wie bei jeder Liste, sind auch bei der Webseitennavigation Elemente am Anfang und Ende am effektivsten, da hier die Aufmerksamkeit und Merkfähigkeit am größten ist. Der sogenannte Positionseffekt, kombiniert mit kognitiven Fähigkeiten.
+
+Infolgedessen ist es essenziell die wichtigen Links am Anfang bzw. am Ende zu platzieren. Um diese herauszufinden hilft es, auf die Statistik der Website zu sehen.
+
+==== Position
+Für den User ist es wichtig, immer zu wissen, wo er gerade ist. Dafür ist es nützlich, ihm immer eine Information zur Verfügung zu stellen, auf welchem Pfad er sich gerade befindet bzw. wie er dahin gekommen ist. Zusätzlich sollte die Navigation Bar nicht verschwinden, sodass sich der Benutzer an ein Element halten kann, womit er schon vertraut ist.
+
+image::navigation.png[{half-height}]
+
+==== Optimierung
+Nach einigen Wochen sollte die Statistik herangenommen werden, um damit die Navigationsstruktur zu überarbeiten. Wenig bis nicht genützte Links löschen, wenn sie nicht essenziell sind. Umbenennen wäre die Wahl, wenn der Link wichtig für das Geschäft ist. Zusätzlich sollten die meist besuchten Links an den Anfang verschoben werden. Dabei sollte jedoch beachtet werden, dass die Startseite meist nicht die Startseite der User ist, da diese oft über Suchmaschinen zu der Website gelangen und somit mit hoher Wahrscheinlichkeit auf einer untergeordneten Seite.
+
+==== Navigation auf mobilen Geräten
+
+Bei den mobilen Websites hat sich das sogenannte "Hamburger Icon" durchgesetzt. Dies sind die 3 Querstriche übereinander, die meist auf der linken oberen Seite zu finden sind. Wenn darauf geklickt wird, erscheint das Navigationsmenü.
+
+image::mobileNav.png[{three-quarters-site}]
+
+Außerdem, bei mobilen Websites sollte darauf geachtet werden, dass Telefonnummern automatisch zu einem Anruf führen. Dies würde wie folgt im Code aussehen:
+
+....
+<a href=”tel:773-348-4581″>(773)348.4581</a>
+....
