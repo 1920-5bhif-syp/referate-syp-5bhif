@@ -1,0 +1,54 @@
+= Jasmine
+
+Jasmine ist ein Unit-Testing-Framework für JavaScript.
+
+Es verfolgt den Ansatz des *Behavior-Driven-Development* (BDD), einer agilen Vorgehensweise in der Softwareentwicklung, die aus dem *Test-Driven-Development* (TDD) entstanden ist.
+Dabei wird zuerst das Verhalten der Software definiert und darauf basierend Tests erstellt.
+Erst nach der Definition der Tests wird am eigentlichen Programm entwickelt, mit dem Ziel, alle Tests positiv abzuschließen.
+
+== describe-it-expect Pattern
+
+Die Syntax von Jasmine erinnert an einige andere BDD Testing-Technologien, wie man sie auch in C++ antrifft.
+Ziel dieser Schreibweise ist eine einfache Lesbarkeit, die den Ansatz unterstützt, erst Tests zu definieren und dann Code zu schreiben.
+
+=== Suite
+
+Eine Suite ist die äußerste Schicht in Jasmine-Tests und wird mit ```describe``` definiert.
+Solche Suites kann man sich wie die "Ausgangssituation" vorstellen, die die zu testende Einheit beschreibt.
+
+=== Spec
+
+In einer Suite findet man eine oder mehrere Specs, die mit ```it``` beschrieben werden.
+Sie sind die einzelnen, konkreten "Problemstellungen" innerhalb der Ausgangssituation udn sollten genau ein Problem abdecken.
+
+=== Expectation
+
+Expectations sind dann die eigentlichen Überprüfungen, die in einer Spec durchgeführt werden. Das geschieht mit der ```expect```-Funktion.
+Diese nimmt als Parameter das zu überprüfende Objekt oder Variable und wird dann mit Matcher-Funktionen wie z.B. ```.toBe()```verkettet.
+
+== Zusätzliche Funktionen
+
+=== Pending-Suites und -Specs
+
+Wenn eine Suite oder eine Spec nicht im Test berücksichtigt werden soll, weil zum Beispiel die Specs fehschlagen und der fehlerhafte Code derzeit nicht relevant ist, so können einzelne Specs oder ganze Suites einfach als "Pending", also "ausstehend" markiert werden.
+
+Das funtkioniert mittels ```xdescribe``` und ```xit```.
+
+=== Spies
+
+Will man Metadaten zu einzelnen Methoden überprüfen, so benötigt man Spies. Diese "spähen" auf eine mitgegebene Methode und speichern alle Aufrufe und sonstige Metadaten ab, die dann später bei den Expectations genutzt werden können.
+
+Ein Spy wird mit ```spyOn(objekt,'methodenname')``` eingestellt.
+Dieser Spy gewährt dann Zugriff auf neue Matcher-Funktionen wie zum Beispiel ```expect(objekt.methode).toHaveBeenCalled()```
+
+=== Jasmine Clock
+
+Viele Programme in JavaScript nutzen Timeouts unds Intervalle.
+Ein Timeout definiert Code, der nach ablauf einer gewissen Zeit ausgeführt wird, während Intervall-Code immer wieder nach einer bestimmten Zeitspanne ausgeführt wird.
+
+Um diesen Code sauber testen zu können, stellt Jasmine die Funktion zur Verfügung, die Zeit manuell zu kontrollieren.
+
+Mittels ```jasmine.clock().install()``` wird diese manuelle Uhr aktiviert und mit ```jasmine.clock().uninstall()``` muss sie nach der Nutzung wieder deaktiviert werden.
+
+Mit der Funktion ```jasmine.clock().tick(n)``` läuft die Zeit n Ticks weiter nach vorne.
+Hat man also beispielsweise ein Timeout, das nach 10 Ticks ausschlägt kann man es im Test mit ```jasmine.clock().tick(11)``` sicherstellen, dass es ausgeführt wird.
