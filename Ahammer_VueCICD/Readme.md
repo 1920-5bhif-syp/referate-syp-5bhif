@@ -9,6 +9,7 @@ Die Abkürzung CI/CD hat unterschiedliche Bedeutungen. „CI“ bedeutet Continu
 Continuous Delivery bedeutet üblicherweise, dass App-Änderungen eines Entwicklers automatisch auf Bugs getestet und in ein Repository (wie GitHub oder eine Container-Registry) hochgeladen werden, von wo aus sie vom Operations-Team in einer Live-Produktivumgebung bereitgestellt werden können. Dieser Vorgang ist die Antwort auf Transparenz- und Kommunikationsprobleme zwischen Dev- und Business-Teams. Damit soll sichergestellt werden, dass neuer Code mit minimalem Aufwand implementiert werden kann.
 
 Continuous Deployment (das andere „CD“) kann sich auf die automatische Freigabe von Entwickleränderungen vom Repository zur Produktivphase beziehen, wo sie direkt vom Kunden genutzt werden können. Dieser Vorgang soll der Überlastung von Operations-Teams bei manuellen Prozessen entgegenwirken, die die Anwendungsbereitstellung verlangsamen. Continuous Development baut die Vorteile der Continuous Delivery aus, indem auch noch die nächste Phase der Pipeline automatisiert wird.
+*https://www.redhat.com/*
 
 <div class="sl-block is-focused" data-block-type="image" style="min-width: 1px; min-height: 1px; width: 860px; height: 411px; left: 50px; top: 181px;" data-origin-id="e842079a13db6fadce37bb8509fd0280"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="875" data-natural-height="418" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/1141232/images/6884526/Continous-Integration-and-Agile-Roadmap.png"></div></div>
 
@@ -23,7 +24,7 @@ Vorteile gegenüber des visuellen Skriptens direkt auf dem Jenkinsserver bietet 
 Grundsätzlich wird die Pipeline in Buildsteps getrennt und so schritt für schritt aufgebaut.
 
 <img src="https://3ovyg21t17l11k49tk1oma21-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/Screen-Shot-2018-07-30-at-7.56.54-AM.png">
-
+*netda-ssl.com*
 
 **Wie funktioniert Github Actions?**
 
