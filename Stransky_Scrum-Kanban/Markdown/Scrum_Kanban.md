@@ -8,7 +8,7 @@ Früher waren hauptsächlich zwei Arten von Vorgehensmodellen in der Software En
 
 Das Wasserfallmodell ist ein lineares, vorallem kein iteratives Vorgehensmodell, das Entwicklungsprozesse in aufeinanderfolgende Projektphasen unterteilt. Aktivitäten müssen in der vorgegebenen Reihenfolge vollständig nacheinander durchgeführt werden. Die Resultate einer Phase fließen in die nächste Phase mit ein. 
 
-![Wasserfall Modell](./images/wasserfallmodell.png)
+![](./images/wasserfallmodell.PNG)
 
 ### Ablauf
 
@@ -23,7 +23,7 @@ Das Wasserfallmodell ist ein lineares, vorallem kein iteratives Vorgehensmodell,
 
 Ähnlich zum Wasserfallmodell. Zusätzlich werden den Entwicklungsphasen Testphasen gegenübergestellt. So entsteht das namensgebende V.
 
-![](./images/vmodell.png)
+![](./images/vmodell.PNG)
 
 - **Anforderungsdefinition**: Anforderungen werden definiert.
 - **Grobentwurf**: Man beschreibt ganz grob, wie das System die Anforderungen umsetzen soll. Die technische Umsetzung wird noch nicht festgelegt.
@@ -178,8 +178,6 @@ Bei Kanban gibt es ebenfalls einen Backlog, wo alle zu erledigenden Aufgaben def
 Zu Beginn wird noch festgelegt, wie viele Aufgaben gleichzeitig pro Spalte bearbeitet werden dürfen. Während es keine Einschränkung für die beiden äußeren Spalten gibt, hat jede mittlere Spalte einen eigenen Höchstwert, denn Multitasking führt – laut Verfechtern von Kanban – eher zu Verzögerungen im Ablauf. Dieser Höchstwert wird als **WIP-Limit** (Work in Progess Limit) bezeichnet. Durch WIP-Limits sollten einzelne Arbeitselemente schneller fertiggestellt, weil sich das Team nur auf die aktuellen Aufgaben konzentriert. Verhindert wird damit auch noch die Anhäufung unvollendeter Aufgaben und man hält Teammitglieder davon ab, ständig zwischen Aufgaben hin und her zu springen.
 
 Kanban verwendet die **Pull-Methode**. Erst wenn wieder Kapazitäten in der Spalte frei sind, was bedeutet das die Anzahl der Aufgaben unter dem WIP Limit liegt, nehmen sich die Mitarbeiter eine neue Aufgabe aus der Spalte links von ihrer eigenen. Spalten werden oftmals für bestimmte Bereiche (z.B. Entwicklung, Testing) zweigeteilt: auf der einen Seite Aufgaben, die gerade bearbeitet werden, und auf der anderen solche Aufgaben, die an die nächste Station wandern können. Beispielsweise wenn die Tester eine Aufgabe fertigstellen (Verschiebung von Doing zu Done), wird anschließend eine Aufgabe vom Entwickler Team der Spalte Done entnommen. Es gibt einige Gemeinsamkeiten zu Scrum, aber auch ein paar Unterschiede.
-
-[Unterschiede zwischen Kanban und Scrum](https://www.notion.so/6a8f7fbf9a934a6781425881b6cdc15d)
 
 ### Kanban zusammengefasst
 
