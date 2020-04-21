@@ -24,7 +24,7 @@ Vorteile gegenüber des visuellen Skriptens direkt auf dem Jenkinsserver bietet 
 Grundsätzlich wird die Pipeline in Buildsteps getrennt und so schritt für schritt aufgebaut.
 
 <img src="https://3ovyg21t17l11k49tk1oma21-wpengine.netdna-ssl.com/wp-content/uploads/2018/07/Screen-Shot-2018-07-30-at-7.56.54-AM.png">
-*netda-ssl.com*
+*www.netda-ssl.com*
 
 **Wie funktioniert Github Actions?**
 
