@@ -1,0 +1,5 @@
+docker
+
+docker run nginx -d
+
+docker container run nginx -d

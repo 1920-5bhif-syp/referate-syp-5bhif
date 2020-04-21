@@ -1,0 +1,13 @@
+cd dockerfiles
+
+docker image build -t mycustomnginx
+
+docker run -d -p 8080:80 mycustomnginx
+
+-------------
+
+cd dockering_quarkus/docking
+
+mvn package -Pnative -Dquarkus.native.container-build=true
+
+docker build -f src/main/docker/Dockerfile.native -t quarkus/docking .
