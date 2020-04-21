@@ -30,7 +30,7 @@ Grundsätzlich wird die Pipeline in Buildsteps getrennt und so schritt für schr
 
 Github Actions ist das Pendant zu Jenkins von Github.
 Hier wird im .github Verzeichnis eines Projekts einen Workflow im main.yml angegeben.
-Meist wird eine vordefinierte Githubaction aus dem Marketplace importiert und dann angepasst.
+Meist wird eine vordefinierte Githubaction aus dem [Marketplace](https://github.com/marketplace?type=actions) importiert und dann angepasst.
 
 <img src="https://i.imgur.com/f6jS9od.png">
 
