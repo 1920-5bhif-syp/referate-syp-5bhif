@@ -40,7 +40,7 @@ image::images/level2.png[alt="Level 2"]
 image::images/drawio.png[alt="Draw IO"]
 
 ## Was ist JMX?
-Die JMX Dateien sind sozusagen JMeters eigenes XML-Format, in denen die Konfigurationen die man in der UI zusammenstellt abgespeichtert werden.
+Die JMX Dateien sind sozusagen JMeters eigenes XML-Format, in denen die Konfigurationen die man in der UI zusammenstellt, abgespeichert werden.
 
 Das "PARENT"-Element ist immer ein "jmeterTestPlan".
 
