@@ -16,7 +16,7 @@ Grundsätzlich ist die heruntergeladene .ZIP Datei nur zu entpacken und die unte
 Nun wird die GUI gestartet und man kann mit dem Testen loslegen.
 
 ## GUI
-image::https://github.com/1920-5bhif-syp/referate-syp-5bhif/tree/master/Auinger_Antensteiner_Load-%2CStresstest/JMeter/images/UI1.JPG[alt="JMeter UI 1"]
+image::images/UI1.JPG[alt="JMeter UI 1"]
 
 ## JMeter is not a browser
 (Interessanter Auszug aus der Website)
