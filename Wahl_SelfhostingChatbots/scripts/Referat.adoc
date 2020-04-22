@@ -90,6 +90,32 @@ image::mycroft-core.jpg[Mycroft Architecture]
 
 Tutorial um Mycroft mit MQTT zu kombinieren ist im anderen Skript.
 
+https://github.com/1920-5bhif-syp/referate-syp-5bhif.git
+
+=== What to use when
+
+[cols=3*]
+|===
+| Aspekt | Lösung | Hintergrund
+
+|Schneller Einstieg
+|Mycroft 
+| Schnelles Deployment, viel vorgefertigte Funktionalität
+
+|Einsatz in der Wirtschaft
+|RASA 
+|Docker, ReST-Schnittstelle
+
+|Anbinden von externer Soft- oder Hardware
+|Mycroft 
+|Funktionalität selbst programmierbar
+
+|Verwendung als reiner Chatbot
+|RASA 
+|Höhere Genauigkeit
+
+|===
+
 == BotUI
 
 BotUI ist ein lightweight JavaScript-Framework, dass Konversationen im Messenger-like Design in Webprojekten ermöglicht.
