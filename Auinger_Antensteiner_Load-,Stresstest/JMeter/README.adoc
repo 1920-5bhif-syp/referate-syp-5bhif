@@ -63,6 +63,17 @@ Auszug aus einem HTTP-Request-Loadtest:
       ....
 ....
 
+## Wie lade ich eine .JMX-Datei?
+image::images/load.png[alt="Load jmx"]
+
+Die gewollte Test-Umgebung auswählen und laden. 
+
+## Wie starte ich eine .JMX-Datei?
+
+Auch Erklärung einiger Parameter der Thread-Group:
+
+image::images/tutorial.png[alt="Tutorial"]
+
+
 ## Non-UI Mode
 image::images/JMeter_cmd.JPG[alt="Command Line"]
-
