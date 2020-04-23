@@ -1,0 +1,102 @@
+# Build Tools
+
+## Allgemeines
+Build-Tools werden verwendet um aus dem Quellcode, ausführbare Anwendungen automatisiert zu erstellen.
+Das Erstellen umfasst das Kompilieren, Verknüpfen und Verpacken des Codes in eine verwendbare oder ausführbare Form.
+Durch die Verwendung eines Automatisierungstools kann der Erstellungsprozess konsistenter gestaltet werden.
+
+## Ant
+Da das System vollständig auf Java basiert, ist es im gleichen Maße plattformunabhängig wie Java selbst. Gleiches gilt für die Build-Files: Auch sie können zwischen verschiedenen Plattformen verschoben werden, weil sie ebenso unabhängig aufgebaut sind. Damit sind mit Apache Ant gebaute Projekte hoch portabel.
+Die Skripte, mit denen Ant seine Anweisungen zum Bauen und Bereitstellen von Software erhält, werden in XML verfasst.
+Jedem Projekt lassen sich beliebig viele Targets zuordnen; Targets sind Ziele für die folgenden Tasks. Jedem Target können wiederum mehrere Tasks zugeordnet werden, die schließlich die konkreten Anweisungen für die Verarbeitung enthalten.
+
+Targets:
+Targets kann man als Container betrachten, in denen beliebig viele Tasks gruppiert werden können. Targets können bei Bedarf voneinander abhängig sein. Damit kann man zum Beispiel erreichen, dass bestimmte Tasks abgeschlossen werden, bevor die Abarbeitung fortschreitet.
+
+Tasks:
+Intern sind Tasks Klassen, die auf bestimmte Aufgaben rund um Erstellung und Verteilung von Software spezialisiert sind. Sie werden im Kontext eines Targets aufgerufen und können parallel oder sequenziell ausgeführt werden.
+
+## Maven
+Marven nutzt XML-Dateien, die normalerweise pom.xml genannt werden, um Java Builds zu konfigurieren.
+Im Vergleich zu Ant sind Maven Build-Dateien kürzer und schneller zu schreiben.
+
+Maven bietet eine Reihe von integrierten Befehlen. Diese können genutzt werden, um häufige Aufgaben zu bearbeiten - ohne jeden Schritt der Aufgabe manuell in der Build-Datei angeben zu müssen.
+Wenn Sie mehrere Java-Projekte erstellen müssen, können Sie mit Maven eine übergeordnete Build-Datei konfigurieren.
+
+Die Unterdateien können dann Eigenschaften der übergeordneten Datei erben. Dadurch entfällt die Notwendigkeit, redundante Build-Konfigurationen für verwandte Projekte zu pflegen.
+Maven ermöglicht es Entwicklern auch, Build-Abhängigkeiten in pom.xml-Dateien festzulegen.
+
+Das Tool verwaltet diese Abhängigkeiten automatisch und lädt sie bei Bedarf herunter.
+Maven verfügt über ein reichhaltiges Ökosystem von offiziell unterstützten Plug-ins.
+Außerdem entwickelt die Community Plug-ins wie Checkstyle und SonarQube.
+Diese Plug-ins machen es einfach, die Funktionalität von Maven zu erweitern, ohne neue Tools von Grund auf erneut schreiben zu müssen.
+
+## Lifecycle
+Der Maven Standard-Lebenszyklus besteht aus clean (Zum Löschen des Zielverzeichnisses), default bzw. build zum Ausführen der unten genannten Phasen sowie site zum Zusammenstellen von Webseiten, die als Projektdokumentation dienen.
+Gegenüber dem Zyklus clean und site, die bereits mit vorkonfigurierten Plugins verknüpft sind, besitzt der Zyklus default (build) keinen vorkonfigurierten Plug-in. Maven geht von einem Zyklus aus, der bei der Softwareerstellung häufig durchlaufen wird.
+Dabei wird nicht unterstellt, dass jedes Softwareprojekt alle Phasen des im Folgenden dargestellten default-Zyklus verwendet:
+
+* validate (Validieren): Hier wird geprüft, ob die Projektstruktur gültig und vollständig ist.
+* compile (Kompilieren): In dieser Phase wird der Quellcode kompiliert.
+* test (Testen): Hier wird der kompilierte Code mit einem passenden Testframework getestet. Maven berücksichtigt dabei in späteren Zyklen, dass Testklassen normalerweise nicht in der auszuliefernden Software vorhanden sind.
+* package (Verpacken): Das Kompilat wird – ggf. mit anderen nichtkompilierbaren Dateien – zur Weitergabe verpackt. Häufig handelt es sich dabei um eine Jar-Datei.
+* integration-test (Test der Integrationsmöglichkeit): Das Softwarepaket wird auf eine Umgebung (anderer Rechner, anderes Verzeichnis, Anwendungsserver) geladen und seine Funktionsfähigkeit geprüft.
+* verify (Gültigkeitsprüfung des Software-Pakets): Prüfungen, ob das Softwarepaket eine gültige Struktur hat und ggf. bestimmte Qualitätskriterien erfüllt.
+* install (Installieren im lokalen Maven-Repository): Installiere das Softwarepaket in dem lokalen Maven-Repository, um es in anderen Projekten verwenden zu können, die von Maven verwaltet werden. Dies ist insbesondere für modulare Projekte von Bedeutung.
+* deploy (Installieren im fernen Maven-Repository): Stabile Versionen der Software werden auf einem fernen Maven-Repository installiert und stehen damit in Umgebungen mit mehreren Entwicklern allen zur Verfügung.
+
+## Plugins
+Maven ist nur ein Core-Framework für eine Collection von Maven Plugins.  Mit anderen Worten, Plugins sind der Ort, an dem ein Großteil der eigentlichen Aktion ausgeführt wird. Plugins werden verwendet um: Jar Files und war files zu generieren, Code kompilieren, Projektdoku erstellen…
+
+Ein Mojo ist nur ein Ziel in Maven und Plugins bestehen aus mehreren Zielen. Ein Mojo besteht aus:
+
+* Zielname
+* In welcher Phase im Lifecycle es sich befindet
+* Parameter die erwartet werden
+
+MOJO … Maven-Old-Java-Object
+
+Verfügbare Maven-Plugins: https://maven.apache.org/plugins/
+
+# Gradle
+
+Gradle basiert auf dem gleichen Konzept wie Apache Ant und Maven und vereint in sich gute Teile beider Tools: Von Ant übernahm man die Flexibilität, von Maven die Benutzerfreundlichkeit.
+
+Es wird nicht XML genutzt, sondern eine andere Sprache – allerdings nicht Ruby sondern eine Sprache, die auf Groovy basiert.
+Skripte neigen deshalb dazu, wesentlich kürzer und klarer formuliert zu sein, als jene für Ant oder Maven.
+Für das Dependency-Management wurde anfangs Apache Ivy verwendet, später wurde eine eigene Engine entwickelt.
+
+## Build-Dateien
+Gradle nutzt für einen einfachen Build hauptsächlich drei Dateien:
+
+* build.gradle – alle Tasks und Abhängigkeiten eines Projekts (ein Multiprojekt hat pro Projekt eine solche Build-Datei, die durch Vererbung der Eigenschaften von ihrem „Vater“-Buildskript kurz gehalten werden können).
+* settings.gradle (optional) – bei einem Multiprojekt werden hier die teilnehmenden Unterprojekte festgelegt.
+* gradle.properties (optional) – eine Liste von Properties, die für die projektspezifische Gradle-Initialisierung eines Builds gültig sind.
+
+## Lifecycle
+Der Lebenszyklus von Gradle besteht aus 3 Phasen:
+
+* Während der *Initialization-Phase*, entscheidet Gradle welche Projekte am Build teilnehmen.
+* Während der *Configuration-Phase*, werden die Task-Objects zu einem internen Objektmodell zusammengesetzt. Dieses Modell wird DAG (directed acyclic graph) genannt.
+* Während der *Execution-Phase*, werden die Build-Tasks in der richtigen Reihenfolge ausgeführt.
+
+## Tasks
+
+* Build
+    ** Full build of the project
+* Check
+    ** Führt Überprüfungsaufgaben durch: z.B. ausführen der Tests
+* Test
+    ** Führt die Unittests aus. (JUnit oder TestNG)
+* JavaDoc
+    ** Generiert eine API Dokumentation für die Erstellung von Java Source mithilfe von Javadoc
+* CompileJava
+    ** Kompiliert Java Files mithilfe vom JDK Kompiler
+* ProcessTestResources
+    ** Kopiert die Test-Resourcen in den Test-Resourcen Ordner.
+* Classes
+    ** produziert alles was in die Jar-Datei soll.
+* Clean – delete
+    ** Löscht das Build-Verzeichnis und alles was darin ist
+
+https://docs.gradle.org/current/userguide/java_plugin.html?_ga=2.232340699.533228670.1587622971-1537814962.1585736409#N120B1
